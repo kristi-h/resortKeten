@@ -7,7 +7,7 @@ import Cal from "./components/Cal"
 function App() {
 
   return (
-    <>
+    <div>
       <Navbar />
       <Landing />
       <MultiCarousel />
@@ -18,7 +18,7 @@ function App() {
        
       </div>
       
-    </>
+    </div>
   )
 }
 
