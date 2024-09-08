@@ -1,4 +1,3 @@
-import React from "react"
 import "./Contact.css"
 
 export default function Contact(){
@@ -17,7 +16,7 @@ export default function Contact(){
             <h4>How big is the swimming pool?</h4>
             <p>Our pool measures 16 x 32 ft and goes up to 5ft deep.</p>
             <h4>Are there neighbors I have to worry about for noise?</h4>
-            <p>The property is a standalone lot so you don't have to worry about noise from any neighbors nearby.</p>
+            <p>The property is a standalone lot so you don`&apos;`t have to worry about noise from any neighbors nearby.</p>
             <h4>How stocked is the kitchen?</h4>
             <p>We have a full kitchen with all the basic amenities like pots, pans, utensils, plates, bowls to cook up all the local ingredients abundantly available from street vendors. </p>
         </div>
