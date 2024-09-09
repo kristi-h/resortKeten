@@ -1,3 +1,5 @@
+import "./Img.css"
+
 const Img = ({ src }) => {
 
     return (

@@ -1,4 +1,4 @@
-.rinja{
+/* .rinja{
     object-fit: contain;
     opacity: .6;
     height: 100vh;
@@ -8,7 +8,7 @@
 
 .rinja:hover{
     opacity: 1;
-}
+} */
 
 .body,
 .img-blurb {
@@ -16,6 +16,8 @@
   flex-direction: column;
   justify-content: center;
   gap: 1.25rem;
+  height: 100vh;
+  width: 100vw;
 }
 
 .img-blurb{
@@ -39,7 +41,7 @@
     font-family: "Libre Baskerville", serif;
     font-weight: 400;
     font-style: italic;
-    background-color: rgba(255,255,255,0.5);
+    /* background-color: rgba(255,255,255,0.5); */
     border-radius: 3px;
   }
   

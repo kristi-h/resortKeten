@@ -1,19 +1,35 @@
-.nav{
-    position: absolute;
-    margin-top: 0;
-    align-self: top;
-    place-items: center;
+*{
+    margin: 0;
+    padding: 0;
 }
+
+.nav{
+    position: fixed;
+    top: 4em;
+    left: 4em;
+    width: 600px;
+}
+.nav ul {
+    list-style: none;
+    text-align: center;
+ }
+ 
+.nav ul li {
+    display: inline-block;
+ }
 
 a{
     color: black;
     /* align-items: center;
     align-self: top; */
+    /* height: 6em; */
 }
 
 a.nav-item{
     color: black;
-    margin-right: 2em;
+    margin-right: 4em;
+    /* height: 6em; */
+    font-size: 4em;
     /* align-items: center;
     place-items: center; */
 }

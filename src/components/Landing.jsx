@@ -1,3 +1,4 @@
+import Navbar from "./Navbar"
 import rinja from "../assets/mt-rinja.jpg"
 import './Landing.css'
 
@@ -6,7 +7,7 @@ export default function Landing(){
     return(
       
         <div className="body" style={{ backgroundImage: `url(${rinja})`}}>
-           
+                <Navbar />  
                 <div className="img-blurb">
                     <h1 className="libre-baskerville-regular">
                         UNEARTH UNPARALLELED LANDSCAPES OF LOMBOK IN ITS IDYLLIC AND NATURAL SERENITY
