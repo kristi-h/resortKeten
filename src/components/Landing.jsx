@@ -4,7 +4,10 @@ import "./Landing.css";
 
 export default function Landing() {
   return (
-    <div className="body" style={{ backgroundImage: `url(${rinja})` }}>
+    <div
+      className="body border-opacity-100"
+      style={{ backgroundImage: `url(${rinja})` }}
+    >
       <div className="img-blurb">
         <div
           alt="landing"
