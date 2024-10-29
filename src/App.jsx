@@ -1,9 +1,8 @@
 import "./App.css";
 import Landing from "./components/modules/Landing";
-import Cal from "./components/Cal";
-import Contact from "./components/Contact";
-import { useState } from "react";
-import * as React from "react";
+import Villa from "./components/pages/Villa";
+import Book from "./components/pages/Book";
+import Local from "./components/pages/Local";
 import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
@@ -34,8 +33,12 @@ export default function App() {
               aria-hidden="true"
               className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
             ></div>
-            {/* <Routes> */}
-            <Landing />
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/villa" element={<Villa />} />
+              <Route path="/book" element={<Book />} />
+              <Route path="/local" element={<Local />} />
+            </Routes>
           </div>
           <div
             aria-hidden="true"

@@ -1,53 +1,52 @@
-import "./MultiCarousel.css"
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import "../assets/carousel/1.jpg"
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { imageSrc } from "./carousel-images";
 import Img from "./Img";
 
-export default function MultiCarousel(){
-    const responsive = {
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 5,
-          slidesToSlide: 5 // optional, default to 1.
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 3,
-          slidesToSlide: 3 // optional, default to 1.
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1,
-          slidesToSlide: 1 // optional, default to 1.
-        }
-      };
-      
-    return(
-        <div>
-            <Carousel
-            swipeable={false}
-            draggable={false}
-            showDots={true}
-            responsive={responsive}
-            ssr={true} // means to render carousel on server-side.
-            infinite={true}
-            // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-            // autoPlaySpeed={1000}
-            // keyBoardControl={true}
-            // customTransition="all .5"
-            transitionDuration={500}
-            containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            // deviceType={this.props.deviceType}
-            dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-40-px"
-            >
-            {imageSrc.map((src) => {
-            return <Img key={src} src={src} />;
-            })}
-            </Carousel>;
-        </div>
-    )
+export default function MultiCarousel() {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1,
+    },
+  };
+
+  return (
+    <div className="w-full h-auto">
+      <Carousel
+        swipeable
+        draggable
+        showDots={true}
+        responsive={responsive}
+        ssr={true}
+        infinite={true}
+        transitionDuration={500}
+        containerClass="carousel-container w-full"
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        dotListClass="mt-4"
+        itemClass="p-4"
+      >
+        {imageSrc.map((src) => (
+          <div key={src} className="flex justify-center items-center">
+            <Img
+              src={src}
+              alt="carousel image"
+              className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-md"
+            />
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  );
 }

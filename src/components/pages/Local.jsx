@@ -1,5 +1,10 @@
 import MultiCarousel from "../MultiCarousel";
 
 export default function Local() {
-  return <MultiCarousel />;
+  return (
+    <div>
+      <h1>welcome to local life</h1>
+      <MultiCarousel />
+    </div>
+  );
 }
