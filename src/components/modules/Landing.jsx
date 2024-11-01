@@ -1,47 +1,41 @@
-import rinja from "../../assets/mt-rinja.jpg";
-// import "../../Landing.css";
+import paddies from "../../assets/rice_paddies.jpg";
 import { NavLink } from "react-router-dom";
 
 export default function Landing() {
   return (
     <div
-      className="body border-opacity-100"
-      style={{ backgroundImage: `url(${rinja})` }}
+      className="flex flex-col justify-center items-center h-screen w-screen bg-cover bg-center"
+      style={{ backgroundImage: `url(${paddies})` }}
     >
-      <div className="img-blurb">
-        <div
-          alt="landing"
-          className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56"
-        >
-          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              Explore local life{" "}
-              <a href="#" className="font-semibold text-indigo-600">
-                <span aria-hidden="true" className="absolute inset-0" />
-                Read more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div>
-          <div className="text-center">
-            <h1 className="text-balance text-4xl font-bold font-libre tracking-tight text-gray-900 sm:text-6xl">
-              Explore Lombok
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-black-200 font-libre">
-              UNEARTH UNPARALLELED LANDSCAPES IN ITS IDYLLIC AND NATURAL
-              SERENITY
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <NavLink to="./villa">Your private villa awaits...</NavLink>
-
-              {/* <a
-                href="#"
-                className="text-sm font-semibold leading-6 text-gray-900"
-              >
-                Local Life <span aria-hidden="true">→</span>
-              </a> */}
-
-              <NavLink to="./pages/local">Local Life</NavLink>
-            </div>
+      <div className="text-center space-y-8 text-orange-200 bg-black bg-opacity-50 p-8 rounded-lg animate-fade-in">
+        <div className="relative rounded-full px-3 py-1 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20 bg-white bg-opacity-20 backdrop-blur-sm">
+          <span className="font-semibold text-yellow-300 transition ease-in-out duration-300 hover:text-orange-400">
+            Explore local life{" "}
+            <a href="../pages/local" className="font-semibold text-yellow-100">
+              Read more &rarr;
+            </a>
+          </span>
+        </div>
+        <div className="animate-slide-up">
+          <h1 className="text-4xl font-bold sm:text-6xl drop-shadow-lg shadow-black">
+            Explore Lombok
+          </h1>
+          <p className="mt-6 text-lg leading-8 max-w-md mx-auto text-orange-200 drop-shadow-lg shadow-black">
+            UNEARTH UNPARALLELED LANDSCAPES IN ITS IDYLLIC AND NATURAL SERENITY
+          </p>
+          <div className="mt-10 flex items-center justify-center gap-6">
+            <NavLink
+              to="./villa"
+              className="px-6 py-3 bg-gradient-to-r from-yellow-300 to-brown-500 text-orange-900 font-semibold rounded-lg shadow-md hover:scale-105 transition-transform duration-200 ease-in-out"
+            >
+              Your private villa awaits...
+            </NavLink>
+            <NavLink
+              to="./pages/local"
+              className="px-6 py-3 bg-gradient-to-r from-yellow-300 to-brown-500 text-orange-900 font-semibold rounded-lg shadow-md hover:scale-105 transition-transform duration-200 ease-in-out"
+            >
+              Local Life
+            </NavLink>
           </div>
         </div>
       </div>
