@@ -1,4 +1,23 @@
+import gili_island from "@assets/about/gili_island.jpg";
+import moto from "@assets/about/moto.jpg";
+import fieldworker from "@assets/about/fieldworker.jpg";
+import fields_kids from "@assets/about/fields_kids.jpg";
+import drums from "@assets/about/drums.jpg";
+import prayer from "@assets/about/prayer.jpg";
+import bananas from "@assets/about/bananas.jpg";
+import boat from "@assets/about/boat.jpg";
+
 export default function Story() {
+  const images = [
+    gili_island,
+    moto,
+    fieldworker,
+    fields_kids,
+    drums,
+    prayer,
+    bananas,
+    boat,
+  ];
   return (
     <div>
       <p>

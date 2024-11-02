@@ -8,9 +8,14 @@ import handlooms from "@assets/local/handlooms.jpg";
 import sadeWeaving from "@assets/local/sade_weaving.png";
 import giliIslands from "@assets/local/sunset_waves.jpg";
 
-const fadeInVariant = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+const slideInLeft = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const slideInRight = {
+  hidden: { opacity: 0, x: 30 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
 
 export default function Local() {
@@ -56,9 +61,6 @@ export default function Local() {
     triggerOnce: true,
     threshold: 0.5,
   });
-  const sectionRefs = images.map(() =>
-    useInView({ triggerOnce: true, threshold: 0.3 })
-  );
 
   const fadeInClass = (inView) =>
     `${
@@ -66,7 +68,7 @@ export default function Local() {
     } transition-opacity duration-1000 transform ease-out`;
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-10 text-gray-800 space-y-10">
+    <div className="bg-gradient-135 from-yellow-100 to-gray-300 max-w-3xl mx-auto px-6 py-10 text-gray-800 space-y-10">
       <h1
         ref={titleRef}
         className={`text-3xl font-bold text-gray-900 text-center ${fadeInClass(
@@ -77,25 +79,28 @@ export default function Local() {
       </h1>
 
       {images.map((image, index) => (
-        <section
-          key={index}
-          ref={sectionRefs[index].ref}
-          className={fadeInClass(sectionRefs[index].inView)}
-        >
+        <section key={index} className="my-12">
           <motion.p
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            variants={fadeInVariant}
+            variants={index % 2 === 0 ? slideInLeft : slideInRight} // Alternate animation direction
             className="leading-relaxed"
           >
             {image.text}
           </motion.p>
-          <br></br>
-          <img
+          <br />
+          <motion.img
             src={image.src}
             alt={image.alt}
-            className="w-full h-auto rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={{
+              hidden: { opacity: 0, scale: 0.95 },
+              visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
+            }}
+            className="w-full h-auto rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 backdropBlur-xs"
           />
         </section>
       ))}
