@@ -7,7 +7,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "The Villa", to: "/villa" },
+    { name: "The Villa", href: "/villa" },
     { name: "Book Us", href: "/book" },
     { name: "Local Life", href: "/local" },
     { name: "Our Story", href: "/story" },

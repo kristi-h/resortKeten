@@ -3,6 +3,7 @@ import Landing from "./components/modules/Landing";
 import Villa from "./components/pages/Villa";
 import Book from "./components/pages/Book";
 import Local from "./components/pages/Local";
+import Story from "./components/pages/Story";
 import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
@@ -38,6 +39,7 @@ export default function App() {
               <Route path="/villa" element={<Villa />} />
               <Route path="/book" element={<Book />} />
               <Route path="/local" element={<Local />} />
+              <Route path="/story" element={<Story />} />
             </Routes>
           </div>
           <div

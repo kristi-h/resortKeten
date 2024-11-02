@@ -9,13 +9,13 @@ import sadeWeaving from "@assets/local/sade_weaving.png";
 import giliIslands from "@assets/local/sunset_waves.jpg";
 
 const slideInLeft = {
-  hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+  hidden: { opacity: 0, x: -150 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.9 } },
 };
 
 const slideInRight = {
-  hidden: { opacity: 0, x: 30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+  hidden: { opacity: 0, x: 150 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.9 } },
 };
 
 export default function Local() {
@@ -68,7 +68,10 @@ export default function Local() {
     } transition-opacity duration-1000 transform ease-out`;
 
   return (
-    <div className="bg-gradient-135 from-yellow-100 to-gray-300 max-w-3xl mx-auto px-6 py-10 text-gray-800 space-y-10">
+    <div
+      className="w-full px-4 lg:px-10 py-10 bg-gradient-135 from-yellow-100 to-gray-300 text-gray-800 space-y-10"
+      style={{ backgroundImage: `url(${morningBeach})` }}
+    >
       <h1
         ref={titleRef}
         className={`text-3xl font-bold text-gray-900 text-center ${fadeInClass(
@@ -100,7 +103,7 @@ export default function Local() {
               hidden: { opacity: 0, scale: 0.95 },
               visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
             }}
-            className="w-full h-auto rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 backdropBlur-xs"
+            className="w-full h-auto rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105"
           />
         </section>
       ))}
