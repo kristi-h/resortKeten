@@ -11,7 +11,7 @@ export default function Landing() {
         <div className="relative rounded-full px-3 py-1 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20 bg-white bg-opacity-20 backdrop-blur-sm">
           <span className="font-semibold text-yellow-300 transition ease-in-out duration-300 hover:text-orange-400">
             Explore local life{" "}
-            <a href="../pages/local" className="font-semibold text-yellow-100">
+            <a href="../local" className="font-semibold text-yellow-100">
               Read more &rarr;
             </a>
           </span>
