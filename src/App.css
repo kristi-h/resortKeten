@@ -9,3 +9,35 @@
   margin: 0 auto;
   padding: 2rem;
 }
+
+@keyframes slideShow {
+  0% {
+    background-image: url("@assets/about/gili_island.jpg");
+  }
+  14% {
+    background-image: url("@assets/about/moto.jpg");
+  }
+  28% {
+    background-image: url("@assets/about/fieldworker.jpg");
+  }
+  42% {
+    background-image: url("@assets/about/fields_kids.jpg");
+  }
+  56% {
+    background-image: url("@assets/about/drums.jpg");
+  }
+  70% {
+    background-image: url("@assets/about/prayer.jpg");
+  }
+  84% {
+    background-image: url("@assets/about/bananas.jpg");
+  }
+  100% {
+    background-image: url("@assets/about/boat.jpg");
+  }
+}
+
+.bg-slideshow {
+  @apply h-screen w-full bg-cover bg-center;
+  animation: slideShow 28s infinite;
+}
