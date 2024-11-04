@@ -15,6 +15,7 @@ module.exports = {
       },
       fontFamily: {
         libre: ["libre-baskerville-regular, libre-baskerville-regular-italic"],
+        boda: ["Bodoni Moda", "bodoni-moda-regular"],
       },
     },
   },
