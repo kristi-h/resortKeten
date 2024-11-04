@@ -1,11 +1,11 @@
 export default function Story() {
   return (
-    <div className="relative bg-slideshow text-stone-900">
+    <div className="relative bg-slideshow h-screen text-stone-900 overflow-hidden">
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-black opacity-30"></div>
 
-      {/* Story content with responsive layout */}
-      <div className="relative p-4 sm:p-8 md:p-12 lg:p-16 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto text-white">
+      {/* Story content with responsive layout and scrollable area */}
+      <div className="relative max-h-full overflow-y-auto p-4 sm:p-8 md:p-12 lg:p-16 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto text-white">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6">
           Our Story
         </h1>
