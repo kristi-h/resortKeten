@@ -40,6 +40,10 @@
 .bg-slideshow {
   @apply h-screen w-full bg-cover bg-center;
   animation: slideShow 28s infinite;
+  background-image: url("/path/to/your/image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Custom arrow styling for numbers */

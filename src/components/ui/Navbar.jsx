@@ -20,8 +20,8 @@ export default function Navbar() {
         className="flex items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
+          <a href="/" className="-m-1.5 p-1.5">
+            <span className="sr-only">Logo</span>
             <img
               alt=""
               src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
@@ -94,28 +94,10 @@ export default function Navbar() {
                   </a>
                 ))}
               </div>
-              <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
-              </div>
             </div>
           </div>
         </DialogPanel>
       </Dialog>
     </header>
   );
-
-  // return(
-  //     <div className="nav">
-  //         <ul>
-  //             <li><a className="nav-item" href="">Accomodation</a></li>
-  //             <li><a className="nav-item" href="">About</a></li>
-  //             <li><a className="nav-item" href="">Contact</a></li>
-  //         </ul>
-  //     </div>
-  // )
 }
