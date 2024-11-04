@@ -5,7 +5,7 @@ export default function Story() {
       <div className="absolute inset-0 bg-black opacity-30"></div>
 
       {/* Story content with responsive layout and scrollable area */}
-      <div className="relative max-h-full overflow-y-auto p-4 sm:p-8 md:p-12 lg:p-16 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto text-white">
+      <div className="relative max-h-full overflow-y-auto p-4 sm:p-8 md:p-12 lg:p-16 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto text-slate-200">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6">
           Our Story
         </h1>

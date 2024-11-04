@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { imageSrc } from "./carousel-images";
@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 export default function MultiCarousel() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const carouselRef = useRef(null); // Create a reference for the Carousel
 
   const responsive = {
     desktop: {
@@ -37,22 +39,32 @@ export default function MultiCarousel() {
     setIsOpen(false);
   };
 
+  const handleButtonClick = (index) => {
+    setCurrentSlide(index);
+    carouselRef.current.goToSlide(index); // Move the carousel to the selected slide
+  };
+
   return (
     <div className="w-screen h-auto relative">
       <Carousel
         swipeable
         draggable
-        showDots={true}
         responsive={responsive}
         ssr={true}
         infinite={true}
         transitionDuration={500}
         containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        dotListClass="mt-4"
         itemClass="p-4"
+        beforeChange={(nextSlide) => setCurrentSlide(nextSlide)}
+        showDots={false}
+        ref={carouselRef}
+        rtl={undefined}
+        customLeftArrow={<button className="custom-arrow left-arrow">❮</button>}
+        customRightArrow={
+          <button className="custom-arrow right-arrow">❯</button>
+        }
       >
-        {imageSrc.map((src) => (
+        {imageSrc.map((src, index) => (
           <div
             key={src}
             className="flex justify-center items-center cursor-pointer"
@@ -66,6 +78,23 @@ export default function MultiCarousel() {
           </div>
         ))}
       </Carousel>
+
+      {/* Custom numbered indicators */}
+      <div className="flex justify-center space-x-4 mt-4">
+        {imageSrc.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleButtonClick(index)}
+            className={`w-8 h-8 rounded-full ${
+              currentSlide === index
+                ? "bg-stone-700 text-white"
+                : "bg-stone-300 text-stone-700"
+            } flex items-center justify-center font-semibold transition-all duration-300`}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
 
       {/* Lightbox overlay */}
       {isOpen && (
