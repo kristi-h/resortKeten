@@ -1,15 +1,34 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from "tailwindcss/plugin";
 
-const plugin = require("tailwindcss/plugin");
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      // backgroundImage: (theme) => ({
-      //   "gradient-to-45": "linear-gradient(45deg, #ffed4a, #ff3860)",
-      //   "gradient-to-135": "linear-gradient(135deg, #ffed4a, #ff3860)",
-      //   // You can add more custom classes here
-      // }),
+      backgroundImage: {
+        slideshow: 'url("/assets/about/gili_island.jpg")',
+      },
+      keyframes: {
+        aboutSlideShow: {
+          "0%": {
+            backgroundImage: 'url("/assets/about/gili_island.jpg")',
+          },
+          "14%": { backgroundImage: 'url("/assets/about/moto.jpg")' },
+          "28%": {
+            backgroundImage: 'url("/assets/about/fieldworker.jpg")',
+          },
+          "42%": {
+            backgroundImage: 'url("/assets/about/fields_kids.jpg")',
+          },
+          "56%": { backgroundImage: 'url("/assets/about/drums.jpg")' },
+          "70%": { backgroundImage: 'url("/assets/about/prayer.jpg")' },
+          "84%": { backgroundImage: 'url("/assets/about/bananas.jpg")' },
+          "100%": { backgroundImage: 'url("/assets/about/boat.jpg")' },
+        },
+      },
+      animation: {
+        aboutSlideShow: "aboutSlideShow 40s infinite",
+      },
       backdropBlur: {
         xs: "2px",
       },

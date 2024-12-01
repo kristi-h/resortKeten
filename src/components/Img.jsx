@@ -1,13 +1,9 @@
-import "./Img.css"
-
 const Img = ({ src }) => {
+  return (
+    <div className="h-[1200px] w-[1200px]">
+      <img className="block h-full w-full" src={src} alt="" />
+    </div>
+  );
+};
 
-    return (
-      <div className='item'>
-        <img className='item-image' src={src} alt="" />
-      </div>
-     
-    )
-  }
-  
-  export default Img
+export default Img;

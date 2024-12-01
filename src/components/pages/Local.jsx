@@ -69,7 +69,7 @@ export default function Local() {
 
   return (
     <div
-      className="w-full px-4 lg:px-10 py-10 bg-gradient-135 from-yellow-100 to-gray-300 text-gray-800 space-y-10"
+      className="w-full px-4 lg:px-10 py-10 bg-gradient-135 from-yellow-100 to-gray-300 text-gray-800 space-y-10 h-screen"
       style={{ backgroundImage: `url(${morningBeach})` }}
     >
       <h1
@@ -82,7 +82,10 @@ export default function Local() {
       </h1>
 
       {images.map((image, index) => (
-        <section key={index} className="my-12">
+        <section
+          key={index}
+          className="my-12 h-screen flex flex-col items-center justify-center"
+        >
           <motion.p
             initial="hidden"
             whileInView="visible"
