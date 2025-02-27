@@ -2,17 +2,18 @@ import MultiCarousel from "../MultiCarousel";
 
 export default function Villa() {
   return (
-    <div className="w-screen text-stone-800 px-4 py-8">
-      <h1 className="text-8xl font-semibold text-center mb-12 font-libre lg:text-9xl">
+    <div className="w-full min-h-screen text-stone-800 px-6 py-8 flex flex-col">
+      <h1 className="text-4xl font-semibold text-center mb-6 font-libre md:text-3xl sm:text-2xl">
         Kala Senja Villa
       </h1>
-      <div alt="text_body" className="text-3xl lg:text-6xl pb-12 space-y-12">
+
+      <div className="text-xl md:text-lg sm:text-base space-y-6 overflow-auto pb-8">
         <p>
           Located in Kuta within 5 mins ride to the town’s many bars and
           eateries, our luxury villa offers a tranquil respite to wind down and
           recharge from your day. Indulge yourself with lavish amenities:
         </p>
-        <ul className="list-disc ml-8 space-y-2">
+        <ul className="list-disc ml-6 space-y-1">
           <li>Rain shower</li>
           <li>Open roof bath tub</li>
           <li>Pool side lounge</li>
@@ -28,15 +29,18 @@ export default function Villa() {
         <p>
           Kala Senja Villa has a fully equipped kitchen for you to explore new
           culinary ingredients from our local markets and feast effortlessly in
-          the light filled living room. Panoramic glass sliding doors in the
-          main room allows the indoor space to seamlessly flow through to the
-          pool terrace for a post meal lounge. When ready to turn in, our
+          the light-filled living room. Panoramic glass sliding doors in the
+          main room allow the indoor space to seamlessly flow through to the
+          pool terrace for a post-meal lounge. When ready to turn in, our
           bedrooms provide plush pillowy serenity that feels like a home away
-          from home. Ideal for solo trips, couples, friends to have a secluded
-          getaway within the proximity of popular attractions.
+          from home. Ideal for solo trips, couples, and friends seeking a
+          secluded getaway within the proximity of popular attractions.
         </p>
       </div>
-      <MultiCarousel />
+
+      <div className="w-full h-auto min-h-[40vh] flex justify-center items-center">
+        <MultiCarousel />
+      </div>
     </div>
   );
 }
