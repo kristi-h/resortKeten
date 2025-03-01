@@ -38,7 +38,7 @@ export default function Villa() {
         </p>
       </div>
 
-      <div className="w-full h-auto min-h-[40vh] flex justify-center items-center">
+      <div className="w-full max-w-screen-lg mx-auto flex justify-center items-center">
         <MultiCarousel />
       </div>
     </div>

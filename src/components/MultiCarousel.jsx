@@ -9,7 +9,7 @@ export default function MultiCarousel() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const carouselRef = useRef(null); // Create a reference for the Carousel
+  const carouselRef = useRef(null);
 
   const responsive = {
     desktop: {
@@ -41,11 +41,11 @@ export default function MultiCarousel() {
 
   const handleButtonClick = (index) => {
     setCurrentSlide(index);
-    carouselRef.current.goToSlide(index); // Move the carousel to the selected slide
+    carouselRef.current.goToSlide(index);
   };
 
   return (
-    <div className="w-screen h-auto relative">
+    <div className="w-full max-w-screen-lg mx-auto relative">
       <Carousel
         swipeable
         draggable
@@ -64,7 +64,7 @@ export default function MultiCarousel() {
           <button className="custom-arrow right-arrow">❯</button>
         }
       >
-        {imageSrc.map((src, index) => (
+        {imageSrc.map((src) => (
           <div
             key={src}
             className="flex justify-center items-center cursor-pointer"
@@ -73,13 +73,12 @@ export default function MultiCarousel() {
             <Img
               src={src}
               alt="carousel image"
-              className="w-screen h-80 md:h-96 lg:h-[32rem] object-cover rounded-md"
+              className="w-full h-80 md:h-96 lg:h-[32rem] object-contain rounded-md"
             />
           </div>
         ))}
       </Carousel>
 
-      {/* Custom numbered indicators */}
       <div className="flex justify-center space-x-4 mt-4">
         {imageSrc.map((_, index) => (
           <button
@@ -96,7 +95,6 @@ export default function MultiCarousel() {
         ))}
       </div>
 
-      {/* Lightbox overlay */}
       {isOpen && (
         <motion.div
           className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
