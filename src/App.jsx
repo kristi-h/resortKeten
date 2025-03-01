@@ -1,4 +1,3 @@
-import "./App.css";
 import Landing from "./components/modules/Landing";
 import Villa from "./components/pages/Villa";
 import Book from "./components/pages/Book";
