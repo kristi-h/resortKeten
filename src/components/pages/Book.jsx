@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { booked } from "../../data/bookedDates.jsx";
 
 export default function Book() {
   const [startDate, setStartDate] = useState(null);
@@ -25,6 +26,7 @@ export default function Book() {
             dateFormat="MMMM d, yyyy"
             placeholderText="Select a date"
             className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            excludeDateIntervals={booked}
           />
         </div>
         <div className="flex flex-col items-start">
@@ -41,6 +43,7 @@ export default function Book() {
             dateFormat="MMMM d, yyyy"
             placeholderText="Select a date"
             className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            excludeDateIntervals={booked}
           />
         </div>
       </div>
