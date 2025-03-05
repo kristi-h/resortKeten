@@ -1,11 +1,22 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { booked } from "../../data/bookedDates.jsx";
+import { booked as initialBooked } from "../../data/bookedDates.jsx";
 
 export default function Book() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [bookedDates, setBookedDates] = useState(initialBooked);
+
+  const handleSubmit = () => {
+    if (!startDate || !endDate) return;
+
+    const newBooking = { start: startDate, end: endDate };
+    setBookedDates([...bookedDates, newBooking]);
+
+    setStartDate(null);
+    setEndDate(null);
+  };
 
   return (
     <div className="flex flex-col items-center p-8">
@@ -26,7 +37,7 @@ export default function Book() {
             dateFormat="MMMM d, yyyy"
             placeholderText="Select a date"
             className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-            excludeDateIntervals={booked}
+            excludeDateIntervals={bookedDates}
           />
         </div>
         <div className="flex flex-col items-start">
@@ -43,10 +54,17 @@ export default function Book() {
             dateFormat="MMMM d, yyyy"
             placeholderText="Select a date"
             className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-            excludeDateIntervals={booked}
+            excludeDateIntervals={bookedDates}
           />
         </div>
       </div>
+      <br></br>
+      <button
+        onClick={handleSubmit}
+        className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+      >
+        Book Now
+      </button>
     </div>
   );
 }
