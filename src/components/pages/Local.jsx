@@ -65,43 +65,32 @@ export default function Local() {
       </h1>
 
       {images.map((image, index) => {
-        const isEven = index % 2 === 0;
-
         return (
-          <section
-            key={index}
-            className={`flex flex-col lg:flex-row items-center justify-center my-16 ${
-              isEven ? "lg:flex-row-reverse" : ""
-            }`}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+          <section key={index} className="relative w-full h-screen">
+            <motion.img
+              src={image.src}
+              alt={image.alt}
+              className="absolute inset-0 w-full h-full object-cover"
+              initial={{ opacity: 0.6, scale: 1.1 }}
               whileInView={{
                 opacity: 1,
                 scale: 1,
-                transition: { duration: 1 },
+                transition: { duration: 1.2 },
               }}
-              viewport={{ once: true, amount: 0.5 }}
-              className="w-full lg:w-1/2"
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="rounded-lg shadow-lg w-full h-auto"
-              />
-              <p className="text-center text-lg font-serif italic text-gray-700 mt-4">
-                {image.title}
-              </p>
-            </motion.div>
+              viewport={{ once: true }}
+            />
 
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.5 }}
               variants={textAnimation}
-              className="w-full lg:w-1/2 p-6 lg:p-12"
+              className="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white text-center p-6 lg:p-10"
             >
-              <p className="text-lg lg:text-xl font-light leading-relaxed text-gray-800 bg-white bg-opacity-75 p-6 rounded-md shadow-md">
+              <h2 className="text-lg lg:text-2xl font-semibold mb-2">
+                {image.title}
+              </h2>
+              <p className="text-sm lg:text-lg font-light leading-relaxed">
                 {image.text}
               </p>
             </motion.div>
