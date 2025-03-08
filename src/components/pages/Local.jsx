@@ -85,7 +85,7 @@ export default function Local() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
               variants={textAnimation}
-              className="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white text-center p-6 lg:p-10"
+              className="absolute bottom-0 left-0 w-full bg-white bg-opacity-50 text-yellow-800 text-center p-6 lg:p-10"
             >
               <h2 className="text-lg lg:text-2xl font-semibold mb-2">
                 {image.title}
