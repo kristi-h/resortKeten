@@ -12,21 +12,9 @@ export default function MultiCarousel() {
   const carouselRef = useRef(null);
 
   const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      slidesToSlide: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
+    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
+    tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
+    mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
   };
 
   const openLightbox = (src) => {
@@ -45,20 +33,19 @@ export default function MultiCarousel() {
   };
 
   return (
-    <div className="w-full max-w-screen-lg mx-auto relative">
+    <div className="w-full max-w-screen-lg mx-auto relative pb-6">
       <Carousel
         swipeable
         draggable
         responsive={responsive}
         ssr={true}
         infinite={true}
-        transitionDuration={500}
+        transitionDuration={600}
         containerClass="carousel-container"
         itemClass="p-4"
         beforeChange={(nextSlide) => setCurrentSlide(nextSlide)}
         showDots={false}
         ref={carouselRef}
-        rtl={undefined}
         customLeftArrow={<button className="custom-arrow left-arrow">❮</button>}
         customRightArrow={
           <button className="custom-arrow right-arrow">❯</button>
@@ -73,25 +60,21 @@ export default function MultiCarousel() {
             <Img
               src={src}
               alt="carousel image"
-              className="w-full h-80 md:h-96 lg:h-[32rem] object-contain rounded-md"
+              className="w-full h-[30rem] object-cover rounded-md"
             />
           </div>
         ))}
       </Carousel>
 
-      <div className="flex justify-center space-x-4 mt-4">
+      <div className="flex justify-center space-x-2 mt-4 pb-4">
         {imageSrc.map((_, index) => (
-          <button
+          <div
             key={index}
             onClick={() => handleButtonClick(index)}
-            className={`w-8 h-8 rounded-full ${
-              currentSlide === index
-                ? "bg-stone-700 text-white"
-                : "bg-stone-300 text-stone-700"
-            } flex items-center justify-center font-semibold transition-all duration-300`}
-          >
-            {index + 1}
-          </button>
+            className={`w-3 h-3 rounded-full cursor-pointer ${
+              currentSlide === index ? "bg-stone-700" : "bg-stone-300"
+            } transition-all duration-300`}
+          />
         ))}
       </div>
 

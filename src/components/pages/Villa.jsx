@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Villa() {
   return (
-    <div className="w-full min-h-screen bg-stone-50 text-stone-900 px-8 py-16 flex flex-col items-center">
+    <div className="w-full min-h-screen bg-stone-50 text-stone-900 px-8 py-16 flex flex-col items-center justify-center">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
