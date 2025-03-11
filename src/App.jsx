@@ -3,7 +3,6 @@ import Villa from "./components/pages/Villa";
 import Book from "./components/pages/Book";
 import Local from "./components/pages/Local";
 import Story from "./components/pages/Story";
-import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   BrowserRouter,
@@ -11,7 +10,6 @@ import {
   Route,
 } from "react-router-dom";
 import "./index.css";
-import { NavLink } from "react-router-dom";
 import Header from "./components/ui/Header";
 
 export default function App() {
