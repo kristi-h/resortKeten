@@ -1,36 +1,34 @@
 import { useState, useRef } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { imageSrc } from "./carousel-images";
-import Img from "./Img";
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 
-export default function MultiCarousel() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+const textAnimation = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1.2, ease: "easeOut" } },
+};
+
+const responsive = {
+  desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
+  tablet: { breakpoint: { max: 1024, min: 768 }, items: 1 },
+  mobile: { breakpoint: { max: 768, min: 0 }, items: 1 },
+};
+
+MultiCarousel.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      text: PropTypes.string,
+    })
+  ).isRequired,
+};
+
+export default function MultiCarousel({ images }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const carouselRef = useRef(null);
-
-  const responsive = {
-    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
-    tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
-    mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
-  };
-
-  const openLightbox = (src) => {
-    setSelectedImage(src);
-    setIsOpen(true);
-  };
-
-  const closeLightbox = () => {
-    setSelectedImage(null);
-    setIsOpen(false);
-  };
-
-  const handleButtonClick = (index) => {
-    setCurrentSlide(index);
-    carouselRef.current.goToSlide(index);
-  };
 
   return (
     <div className="w-full max-w-screen-lg mx-auto relative pb-6">
@@ -40,65 +38,56 @@ export default function MultiCarousel() {
         responsive={responsive}
         ssr={true}
         infinite={true}
+        autoPlay
+        autoPlaySpeed={5000}
         transitionDuration={600}
         containerClass="carousel-container"
         itemClass="p-4"
         beforeChange={(nextSlide) => setCurrentSlide(nextSlide)}
-        showDots={false}
         ref={carouselRef}
-        customLeftArrow={<button className="custom-arrow left-arrow">❮</button>}
-        customRightArrow={
-          <button className="custom-arrow right-arrow">❯</button>
-        }
+        showDots
+        arrows
       >
-        {imageSrc.map((src) => (
+        {images.map((image, index) => (
           <div
-            key={src}
-            className="flex justify-center items-center cursor-pointer"
-            onClick={() => openLightbox(src)}
+            key={index}
+            className="relative w-full h-[80vh] flex items-center justify-center"
           >
-            <Img
-              src={src}
-              alt="carousel image"
-              className="w-full h-[30rem] object-cover rounded-md"
+            <motion.img
+              src={image.src}
+              alt={image.alt}
+              className="absolute inset-0 w-full h-full object-cover"
+              initial={{ opacity: 0.6, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1, transition: { duration: 1.2 } }}
             />
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={textAnimation}
+              className="absolute bottom-0 left-0 w-full bg-black/50 text-white text-center p-6 lg:p-10"
+            >
+              <h2 className="text-lg lg:text-2xl font-semibold mb-2">
+                {image.title}
+              </h2>
+              <p className="text-sm lg:text-lg font-light leading-relaxed">
+                {image.text}
+              </p>
+            </motion.div>
           </div>
         ))}
       </Carousel>
 
       <div className="flex justify-center space-x-2 mt-4 pb-4">
-        {imageSrc.map((_, index) => (
+        {images.map((_, index) => (
           <div
             key={index}
-            onClick={() => handleButtonClick(index)}
+            onClick={() => carouselRef.current.goToSlide(index)}
             className={`w-3 h-3 rounded-full cursor-pointer ${
               currentSlide === index ? "bg-stone-700" : "bg-stone-300"
             } transition-all duration-300`}
           />
         ))}
       </div>
-
-      {isOpen && (
-        <motion.div
-          className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
-          onClick={closeLightbox}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <img
-            src={selectedImage}
-            alt="Full screen view"
-            className="max-w-full max-h-full rounded-lg shadow-lg"
-          />
-          <button
-            onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white text-2xl"
-          >
-            &times;
-          </button>
-        </motion.div>
-      )}
     </div>
   );
 }
