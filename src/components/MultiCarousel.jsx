@@ -45,7 +45,6 @@ export default function MultiCarousel({ images }) {
         itemClass="p-4"
         beforeChange={(nextSlide) => setCurrentSlide(nextSlide)}
         ref={carouselRef}
-        showDots
         arrows
       >
         {images.map((image, index) => (
@@ -64,7 +63,7 @@ export default function MultiCarousel({ images }) {
               initial="hidden"
               animate="visible"
               variants={textAnimation}
-              className="absolute bottom-0 left-0 w-full bg-black/50 text-white text-center p-6 lg:p-10"
+              className="absolute bottom-0 left-0 w-full bg-black/40 text-white text-center p-3 lg:p-4"
             >
               <h2 className="text-lg lg:text-2xl font-semibold mb-2">
                 {image.title}
@@ -77,7 +76,7 @@ export default function MultiCarousel({ images }) {
         ))}
       </Carousel>
 
-      <div className="flex justify-center space-x-2 mt-4 pb-4">
+      <div className="flex justify-center space-x-2">
         {images.map((_, index) => (
           <div
             key={index}
