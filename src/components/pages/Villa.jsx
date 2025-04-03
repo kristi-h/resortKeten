@@ -84,7 +84,7 @@ const images = [
 
 export default function Villa() {
   return (
-    <div className="relative w-full min-h-screen bg-stone-50 text-yellow-800 flex flex-col items-center justify-center overflow-hidden">
+    <div className="relative w-full min-h-screen bg-primary text-secondary flex flex-col items-center justify-center overflow-hidden">
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
         style={{

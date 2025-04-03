@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Header from "./components/ui/Header";
+import Footer from "./components/ui/Footer";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -22,7 +23,7 @@ export default function App() {
 
   return (
     <BrowserRouter router={router}>
-      <div className="w-screen overflow-x-hidden scroll-smooth">
+      <div className="w-screen overflow-x-hidden scroll-smooth bg-primary text-white">
         <Header />
         <Landing />
         <div id="villa">
@@ -37,6 +38,7 @@ export default function App() {
         <div id="story">
           <Story />
         </div>
+        <Footer />
       </div>
     </BrowserRouter>
   );
