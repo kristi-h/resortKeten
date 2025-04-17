@@ -14,16 +14,10 @@ export default {
       },
       keyframes: {
         aboutSlideShow: {
-          "0%": {
-            backgroundImage: 'url("/assets/about/gili_island.jpg")',
-          },
+          "0%": { backgroundImage: 'url("/assets/about/gili_island.jpg")' },
           "14%": { backgroundImage: 'url("/assets/about/moto.jpg")' },
-          "28%": {
-            backgroundImage: 'url("/assets/about/fieldworker.jpg")',
-          },
-          "42%": {
-            backgroundImage: 'url("/assets/about/fields_kids.jpg")',
-          },
+          "28%": { backgroundImage: 'url("/assets/about/fieldworker.jpg")' },
+          "42%": { backgroundImage: 'url("/assets/about/fields_kids.jpg")' },
           "56%": { backgroundImage: 'url("/assets/about/drums.jpg")' },
           "70%": { backgroundImage: 'url("/assets/about/prayer.jpg")' },
           "84%": { backgroundImage: 'url("/assets/about/bananas.jpg")' },
@@ -37,8 +31,11 @@ export default {
         xs: "2px",
       },
       fontFamily: {
-        libre: ["libre-baskerville-regular, libre-baskerville-regular-italic"],
-        boda: ["Bodoni Moda", "bodoni-moda-regular"],
+        libre: ["Libre Baskerville", "serif"],
+        boda: ["Bodoni Moda", "serif"],
+        saol: ["SaolDisplay-Regular", "serif"],
+        helv: ['"Neue Helvetica"', "sans-serif"],
+        gara: ['"Monotype Garamond"', "serif"],
       },
     },
   },

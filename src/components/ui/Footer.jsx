@@ -1,18 +1,26 @@
+import logo from "../../assets/app/sasak_icon.png";
+
 export default function Footer() {
   return (
-    <footer className="bg-primary bg-secondary py-10 px-6 lg:px-16">
+    <footer className="bg-primary text-secondary py-10 px-6 lg:px-16">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center text-center lg:text-left">
-        <div className="mb-6 lg:mb-0">
-          <h2 className="text-3xl lg:text-4xl font-serif tracking-wide">
+        <div className="mb-6 lg:mb-0 ">
+          <img
+            src={logo}
+            alt="logo"
+            className="w-12 h-12 mb-2"
+            style={{ width: "96px", height: "96px", marginBottom: "0.5rem" }}
+          />
+          <h2 className="text-3xl lg:text-4xl font-saol tracking-wide">
             ResortKeten
           </h2>
-          <p className="text-lg font-light mt-2">
+          <p className="text-lg font-light font-saol mt-2">
             Selamat Datang: Welcome to your home away
           </p>
         </div>
 
-        <nav className="mb-6 lg:mb-0">
-          <ul className="flex flex-col space-y-3 text-lg">
+        <nav className="mb-6 lg:mb-0 ">
+          <ul className="flex flex-col space-y-3 font-saol text-lg">
             <li>
               <a href="#villa" className="hover:text-[#EAD7BD] transition">
                 Villas
