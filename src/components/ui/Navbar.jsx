@@ -1,3 +1,5 @@
+import logo from "../../assets/app/sasak_icon.png";
+
 export default function Navbar() {
   const navigation = [
     { name: "The Villa", href: "/villa" },
@@ -12,13 +14,14 @@ export default function Navbar() {
         aria-label="Global"
         className="flex flex-col items-center p-6 lg:px-8"
       >
-        <div className="flex lg:flex-1 w-full justify-center">
+        <div className="flex lg:flex-1 w-full ml-2">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Logo</span>
             <img
               alt=""
-              src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
+              src={logo}
               className="h-8 w-auto"
+              style={{ width: "96px", height: "96px", marginBottom: "0.5rem" }}
             />
           </a>
         </div>

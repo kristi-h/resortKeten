@@ -18,7 +18,7 @@ const images = [
   {
     src: image1,
     alt: "Table and chairs",
-    title: "Dining Area",
+    title: "Dining Room",
   },
   {
     src: image2,
@@ -58,7 +58,7 @@ const images = [
   {
     src: image9,
     alt: "Pool next to Villa",
-    title: "Poolside",
+    title: "Infinity Pool",
   },
   {
     src: image10,
@@ -84,7 +84,7 @@ const images = [
 
 export default function Villa() {
   return (
-    <div className="relative w-full min-h-screen bg-primary text-secondary flex flex-col items-center justify-center overflow-hidden">
+    <div className="relative w-full min-h-screen bg-primary font-saol text-white flex flex-col items-center justify-center overflow-hidden">
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -102,7 +102,7 @@ export default function Villa() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-6xl font-serif text-yellow-800 font-bold tracking-wide"
+          className="text-6xl font-saol text-yellow-800 font-bold tracking-wide"
         >
           Kala Senja Villa
         </motion.h1>
@@ -117,24 +117,24 @@ export default function Villa() {
         </motion.p>
       </div>
 
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="relative z-10 w-full bg-white/70 backdrop-blur-lg rounded-lg shadow-lg max-w-4xl p-8 text-center space-y-6"
       >
-        <h2 className="text-3xl text-yellow-800 font-semibold text-stone-900">
+        <h2 className="text-3xl font-gara font-semibold text-stone-700">
           Indulgent Amenities
         </h2>
-        <ul className="grid grid-cols-2 text-yellow-800 gap-y-3 text-lg text-stone-800">
-          <li>✨ Rain shower</li>
-          <li>🛁 Open-roof bathtub</li>
-          <li>🏖️ Poolside lounge</li>
-          <li>🌿 Garden oasis pool</li>
-          <li>🍳 Fully equipped kitchen</li>
-          <li>🏡 Panoramic glass sliding doors</li>
+        <ul className="grid font-gara grid-cols-2 gap-y-3 text-lg text-stone-700">
+          <li>Rain shower</li>
+          <li>Open-roof bathtub</li>
+          <li>Poolside lounge</li>
+          <li>Garden oasis pool</li>
+          <li>Fully equipped kitchen</li>
+          <li>Panoramic glass sliding doors</li>
         </ul>
-      </motion.div>
+      </motion.div> */}
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
