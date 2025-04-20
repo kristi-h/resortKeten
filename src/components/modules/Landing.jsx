@@ -19,7 +19,7 @@ export default function Landing() {
       </video>
 
       <div className="text-center space-y-8 text-orange-200 bg-black bg-opacity-50 p-8 rounded-lg">
-        <h1 className="text-4xl font-bold sm:text-2xl lg:text-8xl text-black mb-4 font-saol drop-shadow-lg">
+        <h1 className="absolute bottom-[20%] left-1/2 transform -translate-x-1/2  text-4xl font-bold sm:text-2xl lg:text-8xl text-black mb-4 font-saol drop-shadow-lg">
           Explore Lombok
         </h1>
         <p className="text-lg leading-8 max-w-md mx-auto text-orange-200">
