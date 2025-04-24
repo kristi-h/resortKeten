@@ -65,7 +65,7 @@ export default function MultiCarousel({ images }) {
               variants={textAnimation}
               className="absolute bottom-0 left-0 w-full bg-black/40 text-white text-center p-3 lg:p-4"
             >
-              <h2 className="text-lg lg:text-2xl font-semibold mb-2">
+              <h2 className="text-lg lg:text-2xl font-helv font-thin mb-2">
                 {image.title}
               </h2>
               <p className="text-sm lg:text-lg font-light leading-relaxed">
