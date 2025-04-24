@@ -20,7 +20,7 @@ export default function Book() {
 
   return (
     <div className="flex flex-col items-center p-8">
-      <h2 className="text-2xl font-semibold text-stone-900 mb-6">
+      <h2 className="text-4xl font-bold text-yellow-800 font-saol mb-6">
         Book Your Stay
       </h2>
       <div className="flex gap-6">
@@ -35,7 +35,7 @@ export default function Book() {
             startDate={startDate}
             endDate={endDate}
             dateFormat="MMMM d, yyyy"
-            placeholderText="Select a date"
+            placeholderText="Check-in date"
             className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             excludeDateIntervals={bookedDates}
           />
@@ -52,7 +52,7 @@ export default function Book() {
             endDate={endDate}
             minDate={startDate}
             dateFormat="MMMM d, yyyy"
-            placeholderText="Select a date"
+            placeholderText="Check-out date"
             className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             excludeDateIntervals={bookedDates}
           />
@@ -61,7 +61,7 @@ export default function Book() {
       <br></br>
       <button
         onClick={handleSubmit}
-        className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+        className="px-6 py-2 bg-yellow-800 font-gara text-white rounded-lg hover:bg-yellow-800 transition"
       >
         Book Now
       </button>
