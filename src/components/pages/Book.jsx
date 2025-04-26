@@ -23,10 +23,10 @@ export default function Book() {
       <h2 className="text-4xl font-bold text-yellow-800 font-saol mb-6">
         Book Your Stay
       </h2>
-      <div className="flex gap-6">
-        <div className="flex flex-col items-start">
-          <label className="text-lg text-stone-900 font-medium mb-2">
-            Check-in Date
+      <div className="flex flex-col sm:flex-row gap-6 w-full sm:items-end items-center justify-center">
+        <div className="flex flex-col">
+          <label className="text-lg text-white font-saol font-medium mb-2 text-center sm:text-left">
+            Check In
           </label>
           <DatePicker
             selected={startDate}
@@ -35,14 +35,15 @@ export default function Book() {
             startDate={startDate}
             endDate={endDate}
             dateFormat="MMMM d, yyyy"
-            placeholderText="Check-in date"
-            className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            placeholderText="01/01/2026"
+            className="border border-gray-300 rounded-lg px-4 h-12 w-64 text-base leading-6 focus:outline-none focus:ring-2 focus:ring-green-500"
             excludeDateIntervals={bookedDates}
           />
         </div>
-        <div className="flex flex-col items-start">
-          <label className="text-lg text-stone-900 font-medium mb-2">
-            Check-out Date
+
+        <div className="flex flex-col">
+          <label className="text-lg text-white font-saol font-medium mb-2 text-center sm:text-left">
+            Check Out
           </label>
           <DatePicker
             selected={endDate}
@@ -52,19 +53,24 @@ export default function Book() {
             endDate={endDate}
             minDate={startDate}
             dateFormat="MMMM d, yyyy"
-            placeholderText="Check-out date"
-            className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            placeholderText="01/11/2026"
+            className="border border-gray-300 rounded-lg px-4 h-12 w-64 text-base leading-6 focus:outline-none focus:ring-2 focus:ring-green-500"
             excludeDateIntervals={bookedDates}
           />
         </div>
+
+        <div className="flex flex-col">
+          <label className="text-lg text-transparent font-medium mb-2 block">
+            Placeholder
+          </label>
+          <button
+            onClick={handleSubmit}
+            className="h-12 w-64 flex items-center justify-center px-4 text-base leading-6 font-semibold bg-yellow-800 text-white font-gara rounded-lg hover:bg-yellow-700 transition focus:outline-none focus:ring-2 focus:ring-green-500"
+          >
+            Book Now
+          </button>
+        </div>
       </div>
-      <br></br>
-      <button
-        onClick={handleSubmit}
-        className="px-6 py-2 bg-yellow-800 font-gara text-white rounded-lg hover:bg-yellow-800 transition"
-      >
-        Book Now
-      </button>
     </div>
   );
 }
