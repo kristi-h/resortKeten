@@ -1,137 +1,66 @@
+import giliVideo from "../../assets/story/gili_islands.mp4";
+
 export default function Story() {
   return (
-    <div className="relative bg-slideshow animation-aboutSlideShow h-screen text-stone-900 overflow-hidden">
-      <div className="absolute inset-0 bg-black opacity-30"></div>
+    <div className="relative min-h-screen flex items-center justify-center text-stone-900 overflow-hidden">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src={giliVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-      <div className="relative max-h-full overflow-y-auto p-4 sm:p-8 md:p-12 lg:p-16 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto text-slate-200">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-9xl font-semibold mb-4 sm:mb-6">
+      <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
+
+      <div className="relative z-20 max-h-full overflow-y-auto p-4 sm:p-8 md:p-12 lg:p-16 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto text-slate-200">
+        <h1 className="text-2xl sm:text-3xl md:text-2xl lg:text-5xl font-semibold mb-4 sm:mb-6">
           Our Story
         </h1>
-        <p className="text-sm sm:text-base md:text-lg lg:text-6xl leading-relaxed mb-4 sm:mb-6">
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-          qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-          dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-          quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-          aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-          exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
-          ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in
-          ea voluptate velit esse quam nihil molestiae consequatur, vel illum
-          qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        <p className="text-sm sm:text-base md:text-lg lg:text-4xl leading-relaxed mb-4 sm:mb-6">
+          Our story started with an unexpected adventure to Lombok that brought
+          together two friends with a shared love for discovery: Rodrigo, a
+          curious and adventurous Spaniard, and Desi, an Indonesian with an
+          abiding love for her country’s landscapes and people. Rodrigo was a
+          seasoned traveler who had already seen some of the world’s most
+          beautiful places; yet was captivated by Lombok’s rugged coastline,
+          lush greenery, and sense of quiet mystery. It felt like he’d stumbled
+          upon a hidden sanctuary, where turquoise waves met untouched beaches
+          and the rhythm of local life moved peacefully alongside nature.
         </p>
 
-        <p className="text-sm sm:text-base md:text-lg lg:text-6xl leading-relaxed mb-4 sm:mb-6">
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-          qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-          dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-          quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-          aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-          exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
-          ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in
-          ea voluptate velit esse quam nihil molestiae consequatur, vel illum
-          qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        <p className="text-sm sm:text-base md:text-lg lg:text-4xl leading-relaxed mb-4 sm:mb-6">
+          Desi was reminded of how truly unique Lombok is—a place where nature
+          still feels raw and inviting, where culture is vibrant and welcoming.
+          Together, they started to dream of creating a space here, one that
+          would feel like a home for anyone who visited, just as Lombok had
+          become a second home for them.
         </p>
 
-        <p className="text-sm sm:text-base md:text-lg lg:text-6xl leading-relaxed mb-4 sm:mb-6">
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-          qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-          dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-          quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-          aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-          exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
-          ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in
-          ea voluptate velit esse quam nihil molestiae consequatur, vel illum
-          qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        <p className="text-sm sm:text-base md:text-lg lg:text-4xl leading-relaxed mb-4 sm:mb-6">
+          Rodrigo saw Lombok as discovering a secret.. an untouched corner where
+          nature’s raw beauty meets an authentic way of life. There was
+          something here, in these secluded shores and age-old traditions, that
+          felt like the world stood still. Together, they found “the perfect
+          spot,” a place where the hills meet the ocean, a place where life
+          feels genuine and unhurried.
         </p>
 
-        <p className="text-sm sm:text-base md:text-lg lg:text-6xl leading-relaxed">
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-          qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-          dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-          quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-          aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-          exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
-          ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in
-          ea voluptate velit esse quam nihil molestiae consequatur, vel illum
-          qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        <p className="text-sm sm:text-base md:text-lg lg:text-4xl leading-relaxed">
+          We imagined a villa that could mirror Lombok’s essence—a sanctuary
+          rooted in the heart of the community, inviting visitors to pause,
+          breathe, and connect with nature and locals. Here, each sunrise over
+          the sea, each gentle hum from the village, and each winding path
+          through rice paddies feels like a part of Lombok’s timeless charm. For
+          us, this villa isn’t just a destination; it’s an invitation to
+          experience this land’s serene beauty, the warmth of its people, and
+          the gentle rhythm of island life. We welcome you to uncover Lombok’s
+          magic just as we did, one step and one sunset at a time.
         </p>
       </div>
     </div>
   );
 }
-
-// export default function Story() {
-//     return (
-//       // <div className="relative bg-slideshow h-screen text-stone-900 overflow-hidden">
-//       <div className="relative bg-slideshow bg-cover bg-center h-screen text-stone-900 overflow-hidden">
-//         {/* Overlay for readability */}
-//         <div className="absolute inset-0 bg-black opacity-30"></div>
-
-//         {/* Story content with responsive layout and scrollable area */}
-//         <div className="relative max-h-full overflow-y-auto p-4 sm:p-8 md:p-12 lg:p-16 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto text-slate-200">
-//           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-9xl font-semibold mb-4 sm:mb-6">
-//             Our Story
-//           </h1>
-//           <p className="text-sm sm:text-base md:text-lg lg:text-6xl leading-relaxed mb-4 sm:mb-6">
-
-//             Our story started with an unexpected adventure to Lombok that brought
-//             together two friends with a shared love for discovery: Rodrigo, a
-//             curious and adventurous Spaniard, and Desi, an Indonesian with an
-//             abiding love for her country’s landscapes and people. Rodrigo was a
-//             seasoned traveler who had already seen some of the world’s most
-//             beautiful places; yet was captivated by Lombok’s rugged coastline,
-//             lush greenery, and sense of quiet mystery. It felt like he’d stumbled
-//             upon a hidden sanctuary, where turquoise waves met untouched beaches
-//             and the rhythm of local life moved peacefully alongside nature.
-//           </p>
-
-//           <p className="text-sm sm:text-base md:text-lg lg:text-6xl leading-relaxed mb-4 sm:mb-6">
-
-//             Desi was reminded of how truly unique Lombok is—a place where nature
-//             still feels raw and inviting, where culture is vibrant and welcoming.
-//             Together, they started to dream of creating a space here, one that
-//             would feel like a home for anyone who visited, just as Lombok had
-//             become a second home for them.
-//           </p>
-
-//           <p className="text-sm sm:text-base md:text-lg lg:text-6xl leading-relaxed mb-4 sm:mb-6">
-
-//             Rodrigo saw Lombok as discovering a secret.. an untouched corner where
-//             nature’s raw beauty meets an authentic way of life. There was
-//             something here, in these secluded shores and age-old traditions, that
-//             felt like the world stood still. Together, they found “the perfect
-//             spot,” a place where the hills meet the ocean, a place where life
-//             feels genuine and unhurried.
-//           </p>
-
-//           <p className="text-sm sm:text-base md:text-lg lg:text-6xl leading-relaxed">
-
-//             We imagined a villa that could mirror Lombok’s essence—a sanctuary
-//             rooted in the heart of the community, inviting visitors to pause,
-//             breathe, and connect with nature and locals. Here, each sunrise over
-//             the sea, each gentle hum from the village, and each winding path
-//             through rice paddies feels like a part of Lombok’s timeless charm. For
-//             us, this villa isn’t just a destination; it’s an invitation to
-//             experience this land’s serene beauty, the warmth of its people, and
-//             the gentle rhythm of island life. We welcome you to uncover Lombok’s
-//             magic just as we did, one step and one sunset at a time.
-//           </p>
-//         </div>
-//       </div>
-//     );
-//   }
