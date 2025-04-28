@@ -18,6 +18,21 @@ function SharedLayout() {
   );
 }
 
+function NotFound() {
+  return (
+    <div className="flex flex-col items-center justify-center h-screen text-center text-white p-8">
+      <h1 className="text-5xl font-bold mb-4">404</h1>
+      <p className="text-2xl mb-8">Page Not Found</p>
+      <a
+        href="/"
+        className="text-lg text-yellow-400 underline hover:text-yellow-300 transition"
+      >
+        Go back home
+      </a>
+    </div>
+  );
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +43,7 @@ const router = createBrowserRouter([
       { path: "book", element: <Book /> },
       { path: "local", element: <Local /> },
       { path: "story", element: <Story /> },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);
