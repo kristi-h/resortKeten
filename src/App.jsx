@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { motion } from "framer-motion";
 import Landing from "./components/modules/Landing";
 import Villa from "./components/pages/Villa";
 import Book from "./components/pages/Book";
@@ -20,16 +21,25 @@ function SharedLayout() {
 
 function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-center text-white p-8">
+    <motion.div
+      className="flex flex-col items-center justify-center h-screen text-center text-white p-8"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
       <h1 className="text-5xl font-bold mb-4">404</h1>
-      <p className="text-2xl mb-8">Page Not Found</p>
+      <p className="text-2xl mb-8">
+        The page you are looking for does not exist. Please make sure the
+        address is correct or simply select a menu item from the homepage to be
+        directed accordingly.
+      </p>
       <a
         href="/"
         className="text-lg text-yellow-400 underline hover:text-yellow-300 transition"
       >
         Go back home
       </a>
-    </div>
+    </motion.div>
   );
 }
 
