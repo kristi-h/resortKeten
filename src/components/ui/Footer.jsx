@@ -2,9 +2,9 @@ import logo from "../../assets/app/sasak_icon.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-secondary py-10 px-6 lg:px-16">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center text-center lg:text-left">
-        <div className="mb-6 lg:mb-0 ">
+    <footer className="relative bg-primary text-secondary py-10 px-6 lg:px-16">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start text-center lg:text-left relative">
+        <div className="mb-6 lg:mb-0 flex-1">
           <img
             src={logo}
             alt="logo"
@@ -19,41 +19,43 @@ export default function Footer() {
           </p>
         </div>
 
-        <nav className="mb-6 lg:mb-0 ">
-          <ul className="flex flex-col space-y-3 font-saol text-lg">
-            <li>
-              <a href="#villa" className="hover:text-[#EAD7BD] transition">
-                Villas
-              </a>
-            </li>
-            <li>
-              <a href="#book" className="hover:text-[#EAD7BD] transition">
-                Book Now
-              </a>
-            </li>
-            <li>
-              <a href="#local" className="hover:text-[#EAD7BD] transition">
-                Local Life
-              </a>
-            </li>
-            <li>
-              <a href="#story" className="hover:text-[#EAD7BD] transition">
-                Our Story
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <div className="absolute bottom-10 right-6 lg:right-16">
+          <nav className="mb-4">
+            <ul className="flex space-x-6 font-saol text-lg">
+              <li>
+                <a href="/villa" className="hover:text-[#EAD7BD] transition">
+                  Villas
+                </a>
+              </li>
+              <li>
+                <a href="/book" className="hover:text-[#EAD7BD] transition">
+                  Book Now
+                </a>
+              </li>
+              <li>
+                <a href="/local" className="hover:text-[#EAD7BD] transition">
+                  Local Life
+                </a>
+              </li>
+              <li>
+                <a href="/story" className="hover:text-[#EAD7BD] transition">
+                  Our Story
+                </a>
+              </li>
+            </ul>
+          </nav>
 
-        <div className="flex space-x-6">
-          <a href="#" className="hover:text-[#EAD7BD] transition">
-            <i className="fab fa-instagram text-2xl"></i>
-          </a>
-          <a href="#" className="hover:text-[#EAD7BD] transition">
-            <i className="fab fa-facebook text-2xl"></i>
-          </a>
-          <a href="#" className="hover:text-[#EAD7BD] transition">
-            <i className="fab fa-twitter text-2xl"></i>
-          </a>
+          <div className="flex space-x-6">
+            <a href="#" className="hover:text-[#EAD7BD] transition">
+              <i className="fab fa-instagram text-2xl"></i>
+            </a>
+            <a href="#" className="hover:text-[#EAD7BD] transition">
+              <i className="fab fa-facebook text-2xl"></i>
+            </a>
+            <a href="#" className="hover:text-[#EAD7BD] transition">
+              <i className="fab fa-twitter text-2xl"></i>
+            </a>
+          </div>
         </div>
       </div>
 
