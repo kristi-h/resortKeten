@@ -2,15 +2,10 @@ import logo from "../../assets/app/sasak_icon.png";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-primary text-secondary py-10 px-6 lg:px-16">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start text-center lg:text-left relative">
-        <div className="mb-6 lg:mb-0 flex-1">
-          <img
-            src={logo}
-            alt="logo"
-            className="w-12 h-12 mb-2"
-            style={{ width: "96px", height: "96px", marginBottom: "0.5rem" }}
-          />
+    <footer className="bg-primary text-secondary pt-16 pb-10 px-6 lg:px-16 relative">
+      <div className="max-w-7xl mx-auto flex flex-col items-center text-center md:flex-row md:justify-between md:items-end relative h-full">
+        <div className="flex flex-col items-center md:items-start mb-8 md:mb-0">
+          <img src={logo} alt="logo" className="w-24 h-24 mb-2" />
           <h2 className="text-3xl lg:text-4xl font-saol tracking-wide">
             ResortKeten
           </h2>
@@ -19,9 +14,9 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="absolute bottom-10 right-6 lg:right-16">
+        <div className="flex flex-col items-center md:items-end">
           <nav className="mb-4">
-            <ul className="flex space-x-6 font-saol text-lg">
+            <ul className="flex gap-6 font-saol text-lg">
               <li>
                 <a href="/villa" className="hover:text-[#EAD7BD] transition">
                   Villas
