@@ -1,87 +1,7 @@
 import { useState } from "react";
 import MultiCarousel from "../MultiCarousel";
 import { motion } from "framer-motion";
-import image1 from "@assets/villa/image1.png";
-import image2 from "@assets/villa/image2.png";
-import image3 from "@assets/villa/image3.png";
-import image4 from "@assets/villa/image4.png";
-import image5 from "@assets/villa/image5.png";
-import image6 from "@assets/villa/image6.png";
-import image7 from "@assets/villa/image7.png";
-import image8 from "@assets/villa/image8.png";
-import image9 from "@assets/villa/image9.png";
-import image10 from "@assets/villa/image10.png";
-import image11 from "@assets/villa/image11.png";
-import image12 from "@assets/villa/image12.png";
-import image13 from "@assets/villa/image13.png";
-
-const images = [
-  {
-    src: image1,
-    alt: "Table and chairs",
-    title: "Dining Room",
-  },
-  {
-    src: image2,
-    alt: "Sofa and Table",
-    title: "Living Room",
-  },
-  {
-    src: image3,
-    alt: "Master bed",
-    title: "Master Bedroom with Poolside Access",
-  },
-  {
-    src: image4,
-    alt: "Table and chairs",
-    title: "Full Master Bedroom View",
-  },
-  {
-    src: image5,
-    alt: "Bedroom and Mirron",
-    title: "Master Bedroom Sideview",
-  },
-  {
-    src: image6,
-    alt: "Samller Bedroom",
-    title: "Bedroom 2",
-  },
-  {
-    src: image7,
-    alt: "Bathtub",
-    title: "Open Bath",
-  },
-  {
-    src: image8,
-    alt: "Bathroom",
-    title: "Bathroom",
-  },
-  {
-    src: image9,
-    alt: "Pool next to Villa",
-    title: "Infinity Pool",
-  },
-  {
-    src: image10,
-    alt: "Full view of Villa with Pool",
-    title: "Full Pool View",
-  },
-  {
-    src: image11,
-    alt: "Entrance with grass lot",
-    title: "Parking",
-  },
-  {
-    src: image12,
-    alt: "Garden with pathway",
-    title: "Side Garden",
-  },
-  {
-    src: image13,
-    alt: "Big Green Door",
-    title: "Entrance",
-  },
-];
+import { images } from "../../data/villaImages";
 
 export default function Villa() {
   const [showMore, setShowMore] = useState(false);
@@ -164,7 +84,7 @@ export default function Villa() {
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="w-full max-w-screen-lg mx-auto mt-16 shadow-xl rounded-lg overflow-hidden"
       >
-        <MultiCarousel images={images} />
+        <MultiCarousel images={images} className="text-black" />
       </motion.div>
     </div>
   );
