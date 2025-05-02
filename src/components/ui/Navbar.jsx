@@ -14,38 +14,51 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <nav className="relative flex items-center justify-between px-6 py-4 lg:px-8">
+    <header className="fixed inset-x-0 top-0 z-50 bg-transparent">
+      <nav className="flex items-center justify-between px-6 py-2 lg:px-8">
         <a href="/" className="flex-shrink-0">
-          <img src={logo} alt="Logo" className="w-[96px] h-[96px]" />
+          <img src={logo} alt="Logo" className="w-16 h-16" />
         </a>
 
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(true)}
           className="inline-flex items-center justify-center text-black hover:text-white transition-all duration-200 focus:outline-none"
         >
-          {isOpen ? (
-            <MenuOpenIcon style={{ fontSize: 36 }} />
-          ) : (
-            <MenuIcon style={{ fontSize: 36 }} />
-          )}
+          <MenuIcon style={{ fontSize: 32 }} />
         </button>
-
-        {isOpen && (
-          <div className="absolute top-full right-6 mt-2 w-48 bg-black text-white shadow-lg rounded-lg py-3 px-4 z-50 transition-all duration-300">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block py-2 text-base font-medium hover:text-yellow-400 transition-colors duration-150"
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
-        )}
       </nav>
+
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black bg-opacity-50 transition-opacity"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
+
+      <div
+        className={`fixed top-0 right-0 z-50 h-screen w-72 bg-black text-white shadow-lg transform transition-transform duration-300 ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex justify-between items-center px-4 py-4 border-b border-white/20">
+          <span className="text-lg font-semibold">Menu</span>
+          <button onClick={() => setIsOpen(false)} className="text-white">
+            <MenuOpenIcon style={{ fontSize: 30 }} />
+          </button>
+        </div>
+        <div className="flex flex-col px-6 py-6 space-y-4">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className="text-base font-medium hover:text-yellow-400 transition-colors"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
     </header>
   );
 }
