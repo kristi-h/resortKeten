@@ -36,7 +36,7 @@ export default function Book() {
             endDate={endDate}
             dateFormat="MMMM d, yyyy"
             placeholderText="01/01/2026"
-            className="border border-gray-300 rounded-lg px-4 h-12 w-64 text-base leading-6 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="border border-gray-300 rounded-lg px-4 h-12 w-64 text-black text-base leading-6 focus:outline-none focus:ring-2 focus:ring-green-500"
             excludeDateIntervals={bookedDates}
           />
         </div>
@@ -54,7 +54,7 @@ export default function Book() {
             minDate={startDate}
             dateFormat="MMMM d, yyyy"
             placeholderText="01/11/2026"
-            className="border border-gray-300 rounded-lg px-4 h-12 w-64 text-base leading-6 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="border border-gray-300 rounded-lg px-4 h-12 w-64 text-black text-base leading-6 focus:outline-none focus:ring-2 focus:ring-green-500"
             excludeDateIntervals={bookedDates}
           />
         </div>
