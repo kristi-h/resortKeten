@@ -1,21 +1,68 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { booked as initialBooked } from "../../data/bookedDates.jsx";
+import { supabase } from "../../supabaseClient";
 
 export default function Book() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [bookedDates, setBookedDates] = useState(initialBooked);
+  const [bookedDates, setBookedDates] = useState([]);
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = () => {
+  useEffect(() => {
+    fetchBookedDates();
+  }, []);
+
+  const fetchBookedDates = async () => {
+    const { data, error } = await supabase.from("bookings").select("*");
+    if (error) {
+      console.error("Error fetching booked dates:", error);
+      return;
+    }
+
+    const intervals = data.map((booking) => ({
+      start: new Date(booking.start_date),
+      end: new Date(booking.end_date),
+    }));
+
+    setBookedDates(intervals);
+  };
+
+  const handleSubmit = async () => {
     if (!startDate || !endDate) return;
 
-    const newBooking = { start: startDate, end: endDate };
-    setBookedDates([...bookedDates, newBooking]);
+    const { data: overlapping, error: checkError } = await supabase
+      .from("bookings")
+      .select("*")
+      .lte("start_date", endDate.toISOString())
+      .gte("end_date", startDate.toISOString());
 
-    setStartDate(null);
-    setEndDate(null);
+    if (checkError) {
+      console.error("Error checking for overlapping bookings:", checkError);
+      return;
+    }
+
+    if (overlapping.length > 0) {
+      setMessage("These dates are already booked. Please try different ones.");
+      return;
+    }
+
+    const { error: insertError } = await supabase.from("bookings").insert([
+      {
+        start_date: startDate.toISOString().split("T")[0],
+        end_date: endDate.toISOString().split("T")[0],
+      },
+    ]);
+
+    if (insertError) {
+      console.error("Error saving booking:", insertError);
+      setMessage("Booking failed. Try again.");
+    } else {
+      setMessage("Booking successful!");
+      fetchBookedDates();
+      setStartDate(null);
+      setEndDate(null);
+    }
   };
 
   return (
@@ -71,6 +118,10 @@ export default function Book() {
           </button>
         </div>
       </div>
+
+      {message && (
+        <p className="mt-6 text-white text-lg font-gara">{message}</p>
+      )}
     </div>
   );
 }
