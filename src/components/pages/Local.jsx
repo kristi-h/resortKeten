@@ -1,11 +1,20 @@
 import { images } from "../../data/localImages";
+import WeatherWidget from "../WeatherWidget";
 
 export default function Local() {
   return (
     <div className="w-full px-6 lg:px-20 py-16 bg-black">
-      <h1 className="text-4xl lg:text-5xl font-saol font-semibold text-center text-secondary mb-24">
-        Discover Lombok
-      </h1>
+      <div className="mb-24">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mt-36 mb-36 ">
+          <h1 className="text-4xl md:text-4xl lg:text-6xl font-saol font-semibold text-secondary mb-8 lg:mb-0">
+            Discover Lombok
+          </h1>
+          <div className="lg:w-1/2">
+            <WeatherWidget />
+          </div>
+        </div>
+      </div>
+
       <div className="flex flex-col gap-32">
         {images.map((item, idx) => (
           <div
