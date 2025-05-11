@@ -10,7 +10,7 @@ export default function Navbar() {
     { name: "The Villa", href: "/villa" },
     { name: "Book Us", href: "/book" },
     { name: "Local Life", href: "/local" },
-    { name: "Our Story", href: "/story" },
+    { name: "About Us", href: "/about" },
   ];
 
   return (
