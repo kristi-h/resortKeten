@@ -63,7 +63,7 @@ export default function MultiCarousel({ images }) {
               initial="hidden"
               animate="visible"
               variants={textAnimation}
-              className="absolute bottom-0 left-0 w-full  text-white text-center p-3 lg:p-4"
+              className="absolute bottom-0 left-0 w-full bg-black/60 text-white text-center p-3 lg:p-4"
             >
               <h2 className="text-lg lg:text-2xl font-helv font-thin mb-2">
                 {image.title}
