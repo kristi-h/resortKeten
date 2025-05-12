@@ -63,12 +63,12 @@ export default function MultiCarousel({ images }) {
               initial="hidden"
               animate="visible"
               variants={textAnimation}
-              className="absolute bottom-0 left-0 w-full bg-black/40 text-white text-center p-3 lg:p-4"
+              className="absolute bottom-0 left-0 w-full  text-white text-center p-3 lg:p-4"
             >
               <h2 className="text-lg lg:text-2xl font-helv font-thin mb-2">
                 {image.title}
               </h2>
-              <p className="text-sm lg:text-lg font-light leading-relaxed">
+              <p className="text-sm lg:text-lg font-light font-gara leading-relaxed">
                 {image.text}
               </p>
             </motion.div>

@@ -8,6 +8,7 @@ export default {
       colors: {
         primary: "#0e1111",
         secondary: "#FFFDFA",
+        tertiary: "#191970", //midnight blue
       },
       backgroundImage: {
         slideshow: 'url("/assets/about/gili_island.jpg")',
