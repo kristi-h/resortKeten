@@ -64,13 +64,13 @@ export default function Book() {
       setEndDate(null);
     }
   };
-
   return (
-    <div className="flex flex-col items-center p-8">
+    <div className="min-h-screen w-full bg-black flex flex-col items-center justify-center p-8">
       <h2 className="text-4xl font-bold text-yellow-800 font-saol mb-6">
         Book Your Stay
       </h2>
-      <div className="flex flex-col sm:flex-row gap-6 w-full sm:items-end items-center justify-center">
+
+      <div className="flex flex-col sm:flex-row gap-6 w-full max-w-5xl sm:items-end items-center justify-center">
         <div className="flex flex-col">
           <label className="text-lg text-white font-saol font-medium mb-2 text-center sm:text-left">
             Check In
