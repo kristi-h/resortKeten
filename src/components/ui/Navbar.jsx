@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../../assets/app/sasak_icon.png";
+import logo from "../../assets/app/sasak_icon2.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 
@@ -22,7 +22,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setIsOpen(true)}
-          className="inline-flex items-center justify-center text-black hover:text-white transition-all duration-200 focus:outline-none"
+          className="inline-flex items-center justify-center text-white hover:text-white transition-all duration-200 focus:outline-none"
         >
           <MenuIcon style={{ fontSize: 32 }} />
         </button>

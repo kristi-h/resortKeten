@@ -1,4 +1,4 @@
-import logo from "../../assets/app/sasak_icon.png";
+import logo from "../../assets/app/sasak_icon2.png";
 
 export default function Footer() {
   return (
