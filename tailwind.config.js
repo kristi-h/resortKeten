@@ -14,19 +14,13 @@ export default {
         slideshow: 'url("/assets/about/gili_island.jpg")',
       },
       keyframes: {
-        aboutSlideShow: {
-          "0%": { backgroundImage: 'url("/assets/about/gili_island.jpg")' },
-          "14%": { backgroundImage: 'url("/assets/about/moto.jpg")' },
-          "28%": { backgroundImage: 'url("/assets/about/fieldworker.jpg")' },
-          "42%": { backgroundImage: 'url("/assets/about/fields_kids.jpg")' },
-          "56%": { backgroundImage: 'url("/assets/about/drums.jpg")' },
-          "70%": { backgroundImage: 'url("/assets/about/prayer.jpg")' },
-          "84%": { backgroundImage: 'url("/assets/about/bananas.jpg")' },
-          "100%": { backgroundImage: 'url("/assets/about/boat.jpg")' },
+        "fade-slide": {
+          "0%": { opacity: 0, transform: "translateX(10px)" },
+          "100%": { opacity: 1, transform: "translateX(0)" },
         },
       },
       animation: {
-        aboutSlideShow: "aboutSlideShow 40s infinite",
+        "fade-slide": "fade-slide 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards",
       },
       backdropBlur: {
         xs: "2px",
