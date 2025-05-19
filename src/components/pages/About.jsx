@@ -14,7 +14,7 @@ export default function About() {
     if (visibleParagraphs.length < paragraphs.length) {
       const timeout = setTimeout(() => {
         setVisibleParagraphs((prev) => [...prev, prev.length]);
-      }, 15000);
+      }, 5000);
 
       return () => clearTimeout(timeout);
     }
