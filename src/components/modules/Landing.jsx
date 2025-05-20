@@ -1,12 +1,9 @@
-// import paddies from "../../assets/rice_paddies.jpg";
+import { Link } from "react-router-dom";
 import hero from "../../assets/landing/seagreen.mp4";
 
 export default function Landing() {
   return (
-    <div
-      className="w-screen h-screen bg-cover bg-center flex flex-col justify-center items-center"
-      // style={{ backgroundImage: `url(${paddies})` }}
-    >
+    <div className="w-screen h-screen bg-cover bg-center flex flex-col justify-center items-center">
       <video
         autoPlay
         loop
@@ -19,26 +16,11 @@ export default function Landing() {
       </video>
 
       <div className="text-center space-y-8 text-orange-200 bg-black bg-opacity-50 p-8 rounded-lg">
-        <h1 className="absolute bottom-[20%] left-1/2 transform -translate-x-1/2  text-4xl font-bold sm:text-4xl md:text-6xl lg:text-6xl text-black mb-4 font-saol drop-shadow-lg">
-          Explore Lombok
-        </h1>
-        <p className="text-lg leading-8 max-w-md mx-auto text-orange-200">
-          UNEARTH UNPARALLELED LANDSCAPES IN ITS IDYLLIC AND NATURAL SERENITY
-        </p>
-        <div className="mt-10 flex items-center justify-center gap-6">
-          <a
-            href="#villa"
-            className="px-6 py-3 bg-gradient-to-r from-yellow-300 to-brown-500 text-orange-900 font-semibold rounded-lg shadow-md hover:scale-105 transition-transform duration-200 ease-in-out"
-          >
-            Your private villa awaits...
-          </a>
-          <a
-            href="#local"
-            className="px-6 py-3 bg-gradient-to-r from-yellow-300 to-brown-500 text-orange-900 font-semibold rounded-lg shadow-md hover:scale-105 transition-transform duration-200 ease-in-out"
-          >
-            Local Life
-          </a>
-        </div>
+        <Link to="/local">
+          <h1 className="absolute bottom-[20%] left-1/2 transform -translate-x-1/2 text-4xl font-bold sm:text-4xl md:text-6xl lg:text-6xl text-black mb-4 font-saol drop-shadow-lg hover:text-white transition-colors duration-300 cursor-pointer">
+            Explore Lombok
+          </h1>
+        </Link>
       </div>
     </div>
   );
