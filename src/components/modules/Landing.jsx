@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import hero from "../../assets/landing/seagreen.mp4";
+import GlowButton from "../ui/button/GlowButton";
 
 export default function Landing() {
   return (
@@ -23,9 +24,7 @@ export default function Landing() {
         </Link>
 
         <Link to="/book">
-          <button className="px-6 py-3 border-2 border-yellow-700 text-yellow-700 font-gara text-lg rounded-md hover:border-yellow-700 hover:border-4 hover:text-xl transition">
-            Book Your Stay
-          </button>
+          <GlowButton />
         </Link>
       </div>
     </div>
