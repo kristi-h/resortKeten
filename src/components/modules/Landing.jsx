@@ -3,7 +3,7 @@ import hero from "../../assets/landing/seagreen.mp4";
 
 export default function Landing() {
   return (
-    <div className="w-screen h-screen bg-cover bg-center flex items-center justify-center relative overflow-hidden">
+    <div className="w-screen h-screen flex items-center justify-center relative overflow-hidden">
       <video
         autoPlay
         loop
@@ -15,15 +15,15 @@ export default function Landing() {
         Your browser does not support the video tag.
       </video>
 
-      <div className="relative z-10 text-center space-y-6 text-orange-200 bg-black bg-opacity-50 p-8 rounded-lg">
+      <div className="absolute bottom-[10%] left-1/2 transform -translate-x-1/2 z-10 text-center space-y-6">
         <Link to="/local">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-saol text-black hover:text-white transition duration-300 cursor-pointer">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-saol text-black hover:text-yellow-700 transition duration-300 cursor-pointer">
             Explore Lombok
           </h1>
         </Link>
 
         <Link to="/book">
-          <button className="mt-2 px-6 py-3 bg-yellow-800 text-white font-gara text-lg rounded-md hover:bg-yellow-700 transition">
+          <button className="px-6 py-3 border-2 border-yellow-700 text-yellow-700 font-gara text-lg rounded-md hover:border-yellow-700 hover:border-4 hover:text-xl transition">
             Book Your Stay
           </button>
         </Link>
