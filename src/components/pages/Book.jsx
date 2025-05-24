@@ -65,7 +65,7 @@ export default function Book() {
     }
   };
   return (
-    <div className="min-h-screen w-full bg-black flex flex-col items-center justify-center p-8">
+    <div className="min-h-screen w-full bg-rinjani_bg flex flex-col items-center justify-center p-8">
       <h2 className="text-4xl font-bold text-yellow-800 font-saol mb-6">
         Book Your Stay
       </h2>

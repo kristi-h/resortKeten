@@ -12,6 +12,7 @@ export default {
       },
       backgroundImage: {
         slideshow: 'url("/assets/about/gili_island.jpg")',
+        rinjani_bg: 'url("/assets/local/rinjani_landscape.jpg")',
       },
       keyframes: {
         "fade-slide": {
