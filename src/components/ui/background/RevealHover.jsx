@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import PropTypes from "prop-types";
+import bgImage from "@assets/local/rinjani_landscape.jpg";
 
 export default function RevealHover({ children }) {
   const overlayRef = useRef(null);
@@ -18,22 +19,28 @@ export default function RevealHover({ children }) {
       className="relative h-screen w-full overflow-hidden"
       onMouseMove={handleMouseMove}
     >
-      <div className="absolute inset-0 z-0 bg-rinjani_bg bg-cover bg-center" />
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+        }}
+      />
+
       <div
         ref={overlayRef}
         className="absolute inset-0 z-10 pointer-events-none"
         style={{
-          backgroundColor: "white",
+          "--x": "50%",
+          "--y": "50%",
+          backgroundColor: "rgba(255,255,255,0.95)",
           WebkitMaskImage:
-            "radial-gradient(circle 160px at var(--x, 50%) var(--y, 50%), transparent 0%, black 100%)",
+            "radial-gradient(circle 160px at var(--x) var(--y), transparent 0%, black 100%)",
           maskImage:
-            "radial-gradient(circle 160px at var(--x, 50%) var(--y, 50%), transparent 0%, black 100%)",
+            "radial-gradient(circle 160px at var(--x) var(--y), transparent 0%, black 100%)",
           WebkitMaskRepeat: "no-repeat",
           maskRepeat: "no-repeat",
           WebkitMaskSize: "cover",
           maskSize: "cover",
-          maskPosition: "center",
-          WebkitMaskPosition: "center",
         }}
       />
 

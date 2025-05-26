@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { supabase } from "../../supabaseClient";
+import RevealHover from "../ui/background/RevealHover";
 
 export default function Book() {
   const [startDate, setStartDate] = useState(null);
@@ -65,63 +66,65 @@ export default function Book() {
     }
   };
   return (
-    <div className="min-h-screen w-full bg-rinjani_bg flex flex-col items-center justify-center p-8">
-      <h2 className="text-4xl font-bold text-yellow-800 font-saol mb-6">
-        Book Your Stay
-      </h2>
+    <RevealHover>
+      <div className="relative z-20 min-h-screen flex flex-col items-center justify-center p-8">
+        <h2 className="text-4xl font-bold text-yellow-800 font-saol mb-6">
+          Book Your Stay
+        </h2>
 
-      <div className="flex flex-col sm:flex-row gap-6 w-full max-w-5xl sm:items-end items-center justify-center">
-        <div className="flex flex-col">
-          <label className="text-lg text-white font-saol font-medium mb-2 text-center sm:text-left">
-            Check In
-          </label>
-          <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            selectsStart
-            startDate={startDate}
-            endDate={endDate}
-            dateFormat="MMMM d, yyyy"
-            placeholderText="01/01/2026"
-            className="border border-gray-300 rounded-lg px-4 h-12 w-64 text-black text-base leading-6 focus:outline-none focus:ring-2 focus:ring-green-500"
-            excludeDateIntervals={bookedDates}
-          />
+        <div className="flex flex-col sm:flex-row gap-6 w-full max-w-5xl sm:items-end items-center justify-center">
+          <div className="flex flex-col">
+            <label className="text-lg text-white font-saol font-medium mb-2 text-center sm:text-left">
+              Check In
+            </label>
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              selectsStart
+              startDate={startDate}
+              endDate={endDate}
+              dateFormat="MMMM d, yyyy"
+              placeholderText="01/01/2026"
+              className="border border-gray-300 rounded-lg px-4 h-12 w-64 text-black text-base leading-6 focus:outline-none focus:ring-2 focus:ring-green-500"
+              excludeDateIntervals={bookedDates}
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="text-lg text-white font-saol font-medium mb-2 text-center sm:text-left">
+              Check Out
+            </label>
+            <DatePicker
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              selectsEnd
+              startDate={startDate}
+              endDate={endDate}
+              minDate={startDate}
+              dateFormat="MMMM d, yyyy"
+              placeholderText="01/11/2026"
+              className="border border-gray-300 rounded-lg px-4 h-12 w-64 text-black text-base leading-6 focus:outline-none focus:ring-2 focus:ring-green-500"
+              excludeDateIntervals={bookedDates}
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="text-lg text-transparent font-medium mb-2 block">
+              Placeholder
+            </label>
+            <button
+              onClick={handleSubmit}
+              className="h-12 w-64 flex items-center justify-center px-4 text-base leading-6 font-semibold bg-yellow-800 text-white font-gara rounded-lg hover:bg-yellow-700 transition focus:outline-none focus:ring-2 focus:ring-green-500"
+            >
+              Book Now
+            </button>
+          </div>
         </div>
 
-        <div className="flex flex-col">
-          <label className="text-lg text-white font-saol font-medium mb-2 text-center sm:text-left">
-            Check Out
-          </label>
-          <DatePicker
-            selected={endDate}
-            onChange={(date) => setEndDate(date)}
-            selectsEnd
-            startDate={startDate}
-            endDate={endDate}
-            minDate={startDate}
-            dateFormat="MMMM d, yyyy"
-            placeholderText="01/11/2026"
-            className="border border-gray-300 rounded-lg px-4 h-12 w-64 text-black text-base leading-6 focus:outline-none focus:ring-2 focus:ring-green-500"
-            excludeDateIntervals={bookedDates}
-          />
-        </div>
-
-        <div className="flex flex-col">
-          <label className="text-lg text-transparent font-medium mb-2 block">
-            Placeholder
-          </label>
-          <button
-            onClick={handleSubmit}
-            className="h-12 w-64 flex items-center justify-center px-4 text-base leading-6 font-semibold bg-yellow-800 text-white font-gara rounded-lg hover:bg-yellow-700 transition focus:outline-none focus:ring-2 focus:ring-green-500"
-          >
-            Book Now
-          </button>
-        </div>
+        {message && (
+          <p className="mt-6 text-white text-lg font-gara">{message}</p>
+        )}
       </div>
-
-      {message && (
-        <p className="mt-6 text-white text-lg font-gara">{message}</p>
-      )}
-    </div>
+    </RevealHover>
   );
 }
