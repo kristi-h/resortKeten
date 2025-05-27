@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { supabase } from "../../supabaseClient";
-import RevealHover from "../ui/background/RevealHover";
+// import RevealHover from "../ui/background/RevealHover";
+import ScratchReveal from "../ui/background/ScratchReveal";
 
 export default function Book() {
   const [startDate, setStartDate] = useState(null);
@@ -66,7 +67,7 @@ export default function Book() {
     }
   };
   return (
-    <RevealHover>
+    <ScratchReveal>
       <div className="relative z-20 min-h-screen flex flex-col items-center justify-center p-8">
         <h2 className="text-4xl font-bold text-yellow-800 font-saol mb-6">
           Book Your Stay
@@ -125,6 +126,6 @@ export default function Book() {
           <p className="mt-6 text-white text-lg font-gara">{message}</p>
         )}
       </div>
-    </RevealHover>
+    </ScratchReveal>
   );
 }

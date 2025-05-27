@@ -32,7 +32,7 @@ export default function RevealHover({ children }) {
         style={{
           "--x": "50%",
           "--y": "50%",
-          backgroundColor: "rgba(255,255,255,0.95)",
+          backgroundColor: "black",
           WebkitMaskImage:
             "radial-gradient(circle 160px at var(--x) var(--y), transparent 0%, black 100%)",
           maskImage:
