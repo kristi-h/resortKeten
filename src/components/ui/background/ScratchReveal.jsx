@@ -11,8 +11,26 @@ export default function ScratchReveal({ children }) {
   const [sparkles, setSparkles] = useState([]);
 
   const draw = (ctx, x, y, brush) => {
-    ctx.globalCompositeOperation = "destination-out";
-    ctx.drawImage(brush, x - 32, y - 32, 64, 64);
+    const tempCanvas = document.createElement("canvas");
+    const size = 64;
+    tempCanvas.width = size;
+    tempCanvas.height = size;
+    const tempCtx = tempCanvas.getContext("2d");
+
+    tempCtx.clearRect(0, 0, size, size);
+    tempCtx.drawImage(brush, 0, 0, size, size);
+
+    const brushData = tempCtx.getImageData(0, 0, size, size);
+    const imageData = ctx.getImageData(x - 32, y - 32, size, size);
+
+    for (let i = 0; i < brushData.data.length; i += 4) {
+      const alpha = brushData.data[i + 3];
+      if (alpha > 0) {
+        imageData.data[i + 3] = 0;
+      }
+    }
+
+    ctx.putImageData(imageData, x - 32, y - 32);
     setSparkles((prev) => [...prev, { x, y, id: Date.now() + Math.random() }]);
   };
 
@@ -45,21 +63,31 @@ export default function ScratchReveal({ children }) {
     setIsDrawing(false);
   };
 
-  const scratch = (e) => {
-    if (!isDrawing) return;
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+  const brushRef = useRef(null);
+
+  useEffect(() => {
     const brush = new Image();
     brush.src = brushImg;
+    brush.onload = () => {
+      brushRef.current = brush;
+    };
+  }, []);
+
+  const scratch = (e) => {
+    if (!isDrawing || !brushRef.current) return;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    brush.onload = () => draw(ctx, x, y, brush);
+    draw(ctx, x, y, brushRef.current);
   };
 
   const resetCanvas = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+    canvas.width = containerRef.current.offsetWidth;
+    canvas.height = containerRef.current.offsetHeight;
     ctx.globalCompositeOperation = "source-over";
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
