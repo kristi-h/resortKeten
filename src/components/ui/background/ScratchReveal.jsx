@@ -5,10 +5,12 @@ import bgImage from "@assets/local/rinjani_landscape.jpg";
 export default function ScratchReveal({ children }) {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
+  const ctxRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+    ctxRef.current = ctx;
 
     const { offsetWidth: width, offsetHeight: height } = containerRef.current;
     canvas.width = width;
@@ -32,6 +34,16 @@ export default function ScratchReveal({ children }) {
     return () => canvas.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  const handleReset = () => {
+    const canvas = canvasRef.current;
+    const ctx = ctxRef.current;
+    if (ctx && canvas) {
+      ctx.globalCompositeOperation = "source-over";
+      ctx.fillStyle = "white";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+  };
+
   return (
     <div
       ref={containerRef}
@@ -48,6 +60,12 @@ export default function ScratchReveal({ children }) {
         style={{ touchAction: "none" }}
       />
       <div className="relative z-20 pointer-events-none">{children}</div>
+      <button
+        onClick={handleReset}
+        className="absolute bottom-6 right-6 z-30 px-4 py-2 bg-black bg-opacity-80 rounded shadow hover:bg-opacity-100 transition pointer-events-auto"
+      >
+        Reset
+      </button>
     </div>
   );
 }
