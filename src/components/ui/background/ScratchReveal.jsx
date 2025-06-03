@@ -6,6 +6,7 @@ export default function ScratchReveal({ children }) {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const ctxRef = useRef(null);
+  const isDrawingRef = useRef(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -19,7 +20,21 @@ export default function ScratchReveal({ children }) {
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, width, height);
 
+    const handleMouseDown = () => {
+      isDrawingRef.current = true;
+    };
+
+    const handleMouseUp = () => {
+      isDrawingRef.current = false;
+    };
+
+    const handleMouseLeave = () => {
+      isDrawingRef.current = false;
+    };
+
     const handleMouseMove = (e) => {
+      if (!isDrawingRef.current) return;
+
       const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -30,8 +45,17 @@ export default function ScratchReveal({ children }) {
       ctx.fill();
     };
 
+    canvas.addEventListener("mousedown", handleMouseDown);
+    canvas.addEventListener("mouseup", handleMouseUp);
+    canvas.addEventListener("mouseleave", handleMouseLeave);
     canvas.addEventListener("mousemove", handleMouseMove);
-    return () => canvas.removeEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      canvas.removeEventListener("mousedown", handleMouseDown);
+      canvas.removeEventListener("mouseup", handleMouseUp);
+      canvas.removeEventListener("mouseleave", handleMouseLeave);
+      canvas.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   const handleReset = () => {
@@ -57,12 +81,12 @@ export default function ScratchReveal({ children }) {
       <canvas
         ref={canvasRef}
         className="absolute inset-0 z-10"
-        style={{ touchAction: "none" }}
+        style={{ touchAction: "none", cursor: "crosshair" }}
       />
       <div className="relative z-20 pointer-events-none">{children}</div>
       <button
         onClick={handleReset}
-        className="absolute bottom-6 right-6 z-30 px-4 py-2 bg-black bg-opacity-80 rounded shadow hover:bg-opacity-100 transition pointer-events-auto"
+        className="absolute bottom-6 right-6 z-30 px-4 py-2 bg-black bg-opacity-80 text-white rounded shadow hover:bg-opacity-100 transition pointer-events-auto"
       >
         Reset
       </button>
