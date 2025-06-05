@@ -7,9 +7,9 @@ export default function ScratchReveal({ children }) {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const ctxRef = useRef(null);
-  const isDrawingRef = useRef(false);
+  const isDrawing = useRef(false);
 
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [showSparkle, setShowSparkle] = useState(true);
 
   useEffect(() => {
@@ -24,47 +24,37 @@ export default function ScratchReveal({ children }) {
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, width, height);
 
-    const handleMouseDown = () => {
-      isDrawingRef.current = true;
-      setShowSparkle(false);
+    const handleMouseEvent = (e) => {
+      const type = e.type;
+
+      if (type === "mousedown") {
+        isDrawing.current = true;
+        setShowSparkle(false);
+      } else if (type === "mouseup" || type === "mouseleave") {
+        isDrawing.current = false;
+        setShowSparkle(type === "mouseup");
+      }
+
+      if (type === "mousemove") {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        setCursor({ x, y });
+
+        if (!isDrawing.current) return;
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.beginPath();
+        ctx.arc(x, y, 140, 0, Math.PI * 2);
+        ctx.fill();
+      }
     };
 
-    const handleMouseUp = () => {
-      isDrawingRef.current = false;
-      setShowSparkle(true);
-    };
-
-    const handleMouseLeave = () => {
-      isDrawingRef.current = false;
-      setShowSparkle(false);
-    };
-
-    const handleMouseMove = (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      setCursorPos({ x, y });
-
-      if (!isDrawingRef.current) return;
-
-      ctx.globalCompositeOperation = "destination-out";
-      ctx.beginPath();
-      ctx.arc(x, y, 140, 0, Math.PI * 2, false);
-      ctx.fill();
-    };
-
-    canvas.addEventListener("mousedown", handleMouseDown);
-    canvas.addEventListener("mouseup", handleMouseUp);
-    canvas.addEventListener("mouseleave", handleMouseLeave);
-    canvas.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      canvas.removeEventListener("mousedown", handleMouseDown);
-      canvas.removeEventListener("mouseup", handleMouseUp);
-      canvas.removeEventListener("mouseleave", handleMouseLeave);
-      canvas.removeEventListener("mousemove", handleMouseMove);
-    };
+    const events = ["mousedown", "mouseup", "mouseleave", "mousemove"];
+    events.forEach((event) => canvas.addEventListener(event, handleMouseEvent));
+    return () =>
+      events.forEach((event) =>
+        canvas.removeEventListener(event, handleMouseEvent)
+      );
   }, []);
 
   const handleReset = () => {
@@ -97,8 +87,8 @@ export default function ScratchReveal({ children }) {
         <div
           className="absolute z-30 pointer-events-none transition-opacity duration-200"
           style={{
-            left: `${cursorPos.x}px`,
-            top: `${cursorPos.y}px`,
+            left: `${cursor.x}px`,
+            top: `${cursor.y}px`,
             transform: "translate(-50%, -50%)",
           }}
         >
