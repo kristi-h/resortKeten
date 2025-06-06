@@ -10,7 +10,7 @@ export default function ScratchReveal({ children }) {
   const isDrawing = useRef(false);
 
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
-  const [showSparkle, setShowSparkle] = useState(true);
+  const [showIcon, setShowIcon] = useState(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -29,10 +29,10 @@ export default function ScratchReveal({ children }) {
 
       if (type === "mousedown") {
         isDrawing.current = true;
-        setShowSparkle(false);
+        setShowIcon(false);
       } else if (type === "mouseup" || type === "mouseleave") {
         isDrawing.current = false;
-        setShowSparkle(type === "mouseup");
+        setShowIcon(type === "mouseup");
       }
 
       if (type === "mousemove") {
@@ -83,7 +83,7 @@ export default function ScratchReveal({ children }) {
         style={{ touchAction: "none" }}
       />
 
-      {showSparkle && (
+      {showIcon && (
         <div
           className="absolute z-30 pointer-events-none transition-opacity duration-200"
           style={{
@@ -94,7 +94,7 @@ export default function ScratchReveal({ children }) {
         >
           <img
             src={icon}
-            alt="sparkle cursor"
+            alt="icon cursor"
             className="w-12 h-12 drop-shadow-md animate-pulse"
           />
           <div className="text-white text-sm mt-1 text-center bg-black bg-opacity-40 px-2 py-1 rounded">
