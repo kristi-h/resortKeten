@@ -1,5 +1,6 @@
 import { images } from "../../data/localImages";
 import WeatherWidget from "../WeatherWidget";
+import LocalMap from "../modules/LocalMap";
 
 export default function Local() {
   return (
@@ -40,6 +41,7 @@ export default function Local() {
             </div>
           </div>
         ))}
+        <LocalMap />
       </div>
     </div>
   );
