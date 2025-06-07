@@ -11,6 +11,7 @@ export default function Navbar() {
     { name: "Book Us", href: "/book" },
     { name: "Local Life", href: "/local" },
     { name: "About Us", href: "/about" },
+    { name: "Find Us", href: "/find" },
   ];
 
   return (

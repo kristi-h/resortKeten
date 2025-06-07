@@ -5,6 +5,7 @@ import Villa from "./components/pages/Villa";
 import Book from "./components/pages/Book";
 import Local from "./components/pages/Local";
 import About from "./components/pages/About";
+import Find from "./components/pages/Find";
 import Header from "./components/ui/Header";
 import Footer from "./components/ui/Footer";
 import "./index.css";
@@ -53,6 +54,7 @@ const router = createBrowserRouter([
       { path: "book", element: <Book /> },
       { path: "local", element: <Local /> },
       { path: "about", element: <About /> },
+      { path: "find", element: <Find /> },
       { path: "*", element: <NotFound /> },
     ],
   },
