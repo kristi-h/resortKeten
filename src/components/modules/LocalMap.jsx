@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
 export default function LocalMap() {
-  const lombokCoords = [-8.65, 116.324];
+  const lombokCoords = [-8.61, 116.324];
 
   const markerIcon = new L.Icon({
     iconUrl: "/marker-icon.png",
@@ -18,7 +18,7 @@ export default function LocalMap() {
       center={lombokCoords}
       zoom={10}
       scrollWheelZoom={false}
-      className="h-[500px] w-full z-0"
+      className="h-full w-full z-0"
     >
       <TileLayer
         attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>'
