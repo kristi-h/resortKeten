@@ -6,7 +6,7 @@ export default function LocalMap() {
   const lombokCoords = [-8.61, 116.324];
 
   const markerIcon = new L.Icon({
-    iconUrl: "/marker-icon.png",
+    iconUrl: "/assets/marker-icon.png",
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [0, -30],
