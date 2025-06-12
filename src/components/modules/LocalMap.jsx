@@ -1,9 +1,11 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import PropTypes from "prop-types";
 
-export default function LocalMap() {
-  const lombokCoords = [-8.61, 116.324];
+export default function LocalMap({ points }) {
+  const villaCoords = [-8.891, 116.277];
+  const lombokCoords = [-8.651, 116.324];
 
   const markerIcon = new L.Icon({
     iconUrl: "/assets/marker-icon.png",
@@ -24,9 +26,33 @@ export default function LocalMap() {
         attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={lombokCoords} icon={markerIcon}>
+
+      <Marker position={villaCoords} icon={markerIcon}>
         <Popup>Welcome to Lombok!</Popup>
       </Marker>
+
+      {points.map((poi) => (
+        <Marker key={poi.name} position={poi.coords} icon={markerIcon}>
+          <Popup>
+            <div>
+              <h3 className="font-bold">{poi.name}</h3>
+              <p className="text-sm text-gray-600">{poi.region}</p>
+              <p className="text-sm">{poi.description}</p>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
 }
+
+LocalMap.propTypes = {
+  points: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      region: PropTypes.string,
+      description: PropTypes.string,
+      coords: PropTypes.arrayOf(PropTypes.number).isRequired,
+    })
+  ).isRequired,
+};
